@@ -451,7 +451,7 @@ main()
 # CORRECCION: MUY IMPORTANTE! Se estan tomando muy en serio lo de que cada función haga una única cosa, se lo estan tomando muy literal. Tienen que hacerte esta pregunta "Que hace esta función?".
 # Si la respuesta es de la forma: "la función hace esto Y esto" entonces hay algo mal (por ejemplo: la función pide ingreso al usuario Y valida ese ingreso) (otro ejemplo en base a lo que pusieron
 # en la linea 169: la función devuelve un texto en minúscula sin caracteres especiales  <-- está bien)
-            
+# nuevo comentario de Ruy          
             
             
                 
