@@ -13,6 +13,9 @@
     Fecha: 1° Cuatrimestre del 2021
     
 """
+#---------IMPORTES--------------------------#
+from texto import obtener_texto
+import random
 
 #---------CUERPO DE FUNCIONES---------------#
 
@@ -175,9 +178,9 @@ def armar_lista_de_palabras(texto):
 
     lista_palabras_sin_repetir = []
     lista_palabras = texto.split(" ")
-    for i in lista_palabras:# CORRECCION: "i" es un malísimo nombre, "palabra" era mejor
-        if i.lower() not in lista_palabras_sin_repetir and i != '' and len(i) >= 5: # CORRECCION: Faltan constantes
-            lista_palabras_sin_repetir.append(i.lower())
+    for palabra in lista_palabras:
+        if palabra.lower() not in lista_palabras_sin_repetir and palabra != '' and len(palabra) >= 5: # CORRECCION: Faltan constantes
+            lista_palabras_sin_repetir.append(palabra.lower())
     return lista_palabras_sin_repetir
 
 def armar_diccionario(lista_de_palabras, texto):
@@ -442,16 +445,14 @@ def main():
 
         print("Tu puntaje total fue: ", puntaje_total)
 
-from texto import obtener_texto
-import random
+
 main()
 
-# CORRECCION: Los imports van al inicio del archivo
 # CORRECCION: Dividir el programa en mas archivos, puede dividirse por funcionalidad.
 # CORRECCION: MUY IMPORTANTE! Se estan tomando muy en serio lo de que cada función haga una única cosa, se lo estan tomando muy literal. Tienen que hacerte esta pregunta "Que hace esta función?".
 # Si la respuesta es de la forma: "la función hace esto Y esto" entonces hay algo mal (por ejemplo: la función pide ingreso al usuario Y valida ese ingreso) (otro ejemplo en base a lo que pusieron
 # en la linea 169: la función devuelve un texto en minúscula sin caracteres especiales  <-- está bien)
-# nuevo comentario de Ruy          
+         
             
             
                 
