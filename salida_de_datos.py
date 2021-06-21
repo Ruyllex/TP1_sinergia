@@ -14,9 +14,9 @@ def elegir_palabra(diccionario, longitud_palabra_elegida_validada):
 
     """Elige una palabra aleatoria del diccionario para jugar, con la longitud que el jugador quiera, si elige una, sino, la palabra se elige de entre todas
     Zoilo Pazos"""
-
+    vacio=""
     palabras_con_longitud_elegida = []
-    if longitud_palabra_elegida_validada == "": # CORRECCION: Falta una constante
+    if longitud_palabra_elegida_validada == vacio:
         for palabra in diccionario:
             palabras_con_longitud_elegida.append(palabra)
     else:
@@ -30,26 +30,22 @@ def elegir_palabra(diccionario, longitud_palabra_elegida_validada):
 def eliminar_tildes(texto):
 
     """elimina las tildes de la palabra. Zoilo Pazos"""
-
+    letra_con_tilde=0
+    letra_sin_tilde=1
     lista = [("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"), ("ü", "u")]
     for caracter in lista:
-        texto = texto.replace(caracter[0], caracter[1])  # CORRECCION: Usar constantes
+        texto = texto.replace(caracter[letra_con_tilde], caracter[letra_sin_tilde])  
     return texto
 def contar_puntajes(aciertos, desaciertos):
 
     """Cuenta la cantidad de puntos los aciertos valen 10 y los desaciertos valen -5. Zoilo Pazos"""
 
-    total_puntaje_de_palabra = aciertos * 10 + desaciertos * (-5) # CORRECCION: Usar constantes
-    return total_puntaje_de_palabra # CORRECCION: Se puede retornar directamente "aciertos * 10 + ..."
+    valor_aciertos=10
+    valor_desaciertos=-5
+    return aciertos * valor_aciertos + desaciertos * (valor_desaciertos) 
 
 puntaje_total = 0 # CORRECCION: Esto está mal
 
-def solicitar_longitud_palabra(mensaje):
-    
-    """solicita la longitud de la palabra. Zoilo Pazos"""
-
-    longitud_palabra_elegida = input(mensaje) #CORRECCION: Función innecesaria, se cambia "input(mensaje)" por "solicitar_longitud_palabra(mensaje)", básicamente se agrega un llamado a una función innecesario
-    return longitud_palabra_elegida # CORRECICON: Se puede retornar directamente input(mensaje)
 
 
 def validar_longitud_palabra(longitud_palabra_elegida):
@@ -57,17 +53,18 @@ def validar_longitud_palabra(longitud_palabra_elegida):
     """valida el ingreso de la longitud de la palabra elegida (número entero mayor a 5 o caracter vacio). Zoilo Pazos"""
 
     bandera = False # CORRECICON: Utilizar nombres más descriptivos
+    vacio=""
 
     while not bandera :
 
         if longitud_palabra_elegida.isnumeric() and int(longitud_palabra_elegida) in range(5, 16):#en vez de 5 poner 6 y el 16 es la long max dentro del texto # CORRECCION: Utilizar constantes
             bandera = True
-        elif longitud_palabra_elegida == "": # CORRECCION: Utilizar constantes
+        elif longitud_palabra_elegida == vacio:
             bandera = True
         else:
             bandera = False
             mensaje="Ingrese la longitud de palabra (entre 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
-            longitud_palabra_elegida = solicitar_longitud_palabra(mensaje)
+            longitud_palabra_elegida = input(mensaje)
 
     return longitud_palabra_elegida
 
@@ -119,12 +116,13 @@ def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
 def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_letras_incorrectas): # CORRECCION: El nombre de la función es malo, "ultimo_mensaje()" es vago "mostrar_resultado_partida()" es más decriptivo
     
     """muestra el ultimo mensaje. Agustín Sánchez Vergara y Jorge Sedek """
+    cant_MAX_desaciertos=8
     
     if cadena_secreta == palabra_adivinar :
         aciertos += 1
         mostrar_mensaje("Ganaste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
 
-    elif desaciertos == 8: # CORRECCION: Falta constante
+    elif desaciertos == cant_MAX_desaciertos:
             
         #cadena_letras_incorrectas += letra
         mostrar_mensaje("Perdiste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)

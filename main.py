@@ -44,7 +44,7 @@ def main():
 
         #Elección de palabra
         mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
-        longitud_palabra_elegida = solicitar_longitud_palabra(mensaje)
+        longitud_palabra_elegida = input(mensaje)
 
         #validación de palabra
         longitud_palabra_elegida = validar_longitud_palabra(longitud_palabra_elegida)
