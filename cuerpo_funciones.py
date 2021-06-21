@@ -14,18 +14,6 @@ def esconder_palabra(palabra):
 
     return palabra_secreta
 
-#comentario 1
-# def lista_a_cadena(lista):
-# 
-#     """Convierte una lista en una cadena. Joaquín Maguiña"""
-# 
-#     # CORRECCION: No es necesaria esta función, se puede pasar de una lista a una cadena con " "".join(lista) "
-# 
-#     cadena = ""
-#     for caracter in lista:
-#         cadena += caracter
-# 
-#     return cadena
 
 def posicion_letra_en_palabra(letra, palabra_adivinar):
 
