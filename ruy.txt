@@ -1,5 +1,13 @@
-Zoilo capodnenden
-fref
-freferf
-er
-f
+<<<<<<< HEAD
+=======
+Zoilo capoa
+Probando
+Que
+Pasa
+Si
+Hacemos
+git commit
+a
+la
+vez
+>>>>>>> 22c3c9948b770bd7b6460b5267d98ae24ba02dea
