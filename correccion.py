@@ -26,16 +26,16 @@ def main():
 
     intento = 1
     puntaje_total = 0
-    pregunta = "si" # CORRECCION: Esto no es una pregunta, es una respuesta. Mal nombre de variable
+    respuesta = "si" # CORRECCION: Esto no es una pregunta, es una respuesta. Mal nombre de variable
 
-    while pregunta == "si":
+    while respuesta == "si":
 
         # CORRECCION: Cada vez que se va a jugar una nueva partida, vuelven a procesar todo el texto, MAL
 
         #Diccionario
         texto = obtener_texto()
         caracteres_especiales = identificar_caracter_especial(texto)
-        texto = eliminar_caracteres_especiales(texto, caracteres_especiales)
+        texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
         lista_de_palabras = armar_lista_de_palabras(texto)
         diccionario = armar_diccionario(lista_de_palabras, texto)
 
@@ -79,7 +79,7 @@ def main():
             
             letra_verificada = letra_verificada.lower()
             cadena_letras_repetidas += letra_verificada 
-            es_acierto = esta_letra_en_palabra(letra_verificada, palabra_adivinar)
+            es_acierto = letra_verificada in palabra_adivinar
             
             lista_aciertos_desaciertos = contador_aciertos_desaciertos(es_acierto, lista_aciertos_desaciertos)
             
@@ -110,7 +110,7 @@ def main():
         #puntaje_inicial=0
 
         puntaje_total = puntaje_total + contar_puntajes(lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1])
-        pregunta = input("Queres seguir jugando? si/no: ").lower() #CORRECCION: No hay validaciones
+        respuesta = input("Queres seguir jugando? si/no: ").lower() #CORRECCION: No hay validaciones
 
         intento += 1
 
@@ -119,11 +119,10 @@ def main():
 
 main()
 
-# CORRECCION: Dividir el programa en mas archivos, puede dividirse por funcionalidad.
 # CORRECCION: MUY IMPORTANTE! Se estan tomando muy en serio lo de que cada función haga una única cosa, se lo estan tomando muy literal. Tienen que hacerte esta pregunta "Que hace esta función?".
 # Si la respuesta es de la forma: "la función hace esto Y esto" entonces hay algo mal (por ejemplo: la función pide ingreso al usuario Y valida ese ingreso) (otro ejemplo en base a lo que pusieron
 # en la linea 169: la función devuelve un texto en minúscula sin caracteres especiales  <-- está bien)
-         
+
             
             
                 
