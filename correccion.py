@@ -16,71 +16,9 @@
 #---------IMPORTES--------------------------#
 from texto import obtener_texto
 import random
-
-#---------CUERPO DE FUNCIONES---------------#
-
-def esconder_palabra(palabra):
-
-    """Crea una de cadena formada por el simbolo ´?´ de la misma longitud que
-    la palabra ingresada. Joaquín Maguiña
-    """
-
-    palabra_secreta = ""
-
-    for caracter in palabra:
-        palabra_secreta += "?"
-
-    return palabra_secreta
-
-
-def lista_a_cadena(lista):
-
-    """Convierte una lista en una cadena. Joaquín Maguiña"""
-
-    # CORRECCION: No es necesaria esta función, se puede pasar de una lista a una cadena con " "".join(lista) "
-
-    cadena = ""
-    for caracter in lista:
-        cadena += caracter
-
-    return cadena
-
-def posicion_letra_en_palabra(letra, palabra_adivinar):
-
-    """Devuelve la posición de una letra o
-    letras repetidas que ya se encuentran en palabra. Joaquín Maguiña"""
-
-    lista_posicion = []
-    LONGITUD = len(palabra_adivinar) # CORRECCION: Está mal decir que LONGITUD es una constante. Recordar que las constantes son valores inmutables que se definen antes de que corra el intérprete (en este caso
-                                     # el valor de LONGITUD se define mientras corre el intérprete y es dado por la palabra_adivinar usada).
-
-    for i in  range(LONGITUD):
-        if palabra_adivinar[i] == letra:
-            lista_posicion.append(i)
-    return lista_posicion
-
-def ingresar_letra_en_lista_secreta(letra, lista_secreta, lista_posicion):
-
-    """Ingresa la letra a la lista secreta en la posición correspondiente. Joaquín Maguiña"""
-
-    for i in lista_posicion:
-        lista_secreta[i] = letra
-    return lista_secreta
-
-
-
+import cuerpo_funciones
 
 #---------------ENTRADA DE DATOS---------------#
-
-def solicitar_valor(mensaje):
-
-    """Solicita valores a ingresar. Leonardo Ayuso"""
-
-    # CORRECCION: Función innecesaria, en vez de decir "input(mensaje)", hacen "solicitar_valor(mensaje)".
-
-    valor = input(mensaje)
-    return valor
-
 
 def validar_letra(letra):
     
@@ -90,8 +28,8 @@ def validar_letra(letra):
     
     while (len(letra) != 1 or not letra.isalpha()) and (letra not in ("FIN","0")) :
         print("Ingreso inválido: ingresar solo UNA letra")
-        letra = solicitar_valor("Ingresar letra: ")
-        
+        letra = input("Ingresar letra: ")
+
     return letra
 
 def verificar_repetido(letra,cadena_letras_repetidas):
@@ -102,7 +40,7 @@ def verificar_repetido(letra,cadena_letras_repetidas):
     
     while letra in cadena_letras_repetidas:
         print("Letra ya ingresada")
-        letra = solicitar_valor("Ingresar letra: ")
+        letra = input("Ingresar letra: ")
         
     return letra
 
@@ -388,7 +326,7 @@ def main():
 
         """Se evalua que tipo de condición cumple el ingreso de usuario y se repite hasta 
         que cumpla algunas de las condiciones de salida"""
-        letra = solicitar_valor("Ingresar letra: ")
+        letra = input("Ingresar letra: ")
         letra_validada = validar_letra(letra)
         letra_verificada = verificar_repetido(letra_validada,cadena_letras_repetidas)
             
@@ -411,7 +349,7 @@ def main():
             cadena_secreta = lista_a_cadena(lista_secreta)
             if lista_aciertos_desaciertos[1] < 8 and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
-                letra = solicitar_valor("Ingresar letra: ")
+                letra = input("Ingresar letra: ")
                 letra_validada = validar_letra(letra)
                 letra_verificada = permitir_letra(letra_validada,cadena_letras_repetidas)
             
