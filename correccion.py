@@ -32,18 +32,6 @@ def esconder_palabra(palabra):
 
     return palabra_secreta
 
-def cadena_a_lista(cadena):
-
-    """Convierte una cadena en una lista. Joaquín Maguiña"""
-
-    # CORRECCION: No es necesaria esta función, se puede castear la cadena a la lista con "list()"
-
-    lista = []
-
-    for caracter in cadena:
-        lista.append(caracter)
-
-    return lista
 
 def lista_a_cadena(lista):
 
@@ -389,8 +377,8 @@ def main():
         cadena_letras_repetidas = ""
         palabra_secreta = esconder_palabra(palabra_adivinar) 
         
-        lista_secreta = cadena_a_lista(palabra_secreta)  
-        cadena_secreta = lista_a_cadena(lista_secreta) 
+        lista_secreta = list(palabra_secreta)  
+        cadena_secreta = list(lista_secreta) 
 
         #Se le pregunta por 1era vez al usuario que adivine una letra
 
