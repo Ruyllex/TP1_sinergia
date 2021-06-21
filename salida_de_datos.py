@@ -17,19 +17,15 @@ def elegir_palabra(diccionario, longitud_palabra_elegida_validada):
 
     palabras_con_longitud_elegida = []
     if longitud_palabra_elegida_validada == "": # CORRECCION: Falta una constante
-        for palabra in diccionario: # CORRECCION: Usar mejores nombres para las variables "palabra" era mejor
+        for palabra in diccionario:
             palabras_con_longitud_elegida.append(palabra)
-        palabra = random.choice(palabras_con_longitud_elegida)
     else:
-        for i in diccionario: # CORRECCION: Usar mejores nombres para las variables "palabra" era mejor
-            if len(i) == int(longitud_palabra_elegida_validada):
-                palabras_con_longitud_elegida.append(i)
-        palabra = random.choice(palabras_con_longitud_elegida)
+        for palabra in diccionario: 
+            if len(palabra) == int(longitud_palabra_elegida_validada):
+                palabras_con_longitud_elegida.append(palabra)
+    return random.choice(palabras_con_longitud_elegida)
 
-    # CORRECCION: En ambos casosos del if se hace al final "palabra = random.choice(...)", entonces esto se debe sacar afuera del if.
-    # Hasta se puede retornar esto ("return random.choice(...)")
 
-    return palabra
 
 def eliminar_tildes(texto):
 
