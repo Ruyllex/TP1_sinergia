@@ -14,7 +14,7 @@ def esconder_palabra(palabra):
 
     return palabra_secreta
 
-
+#comentario 1
 def lista_a_cadena(lista):
 
     """Convierte una lista en una cadena. Joaquín Maguiña"""

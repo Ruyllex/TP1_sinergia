@@ -89,8 +89,8 @@ def main():
 
             else:
                 cadena_letras_incorrectas += letra_verificada
-
-            cadena_secreta = lista_a_cadena(lista_secreta)
+#ACA
+            cadena_secreta = "".join(lista_secreta)
             if lista_aciertos_desaciertos[1] < 8 and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
                 letra = input("Ingresar letra: ")
