@@ -17,8 +17,8 @@ def elegir_palabra(diccionario, longitud_palabra_elegida_validada):
 
     palabras_con_longitud_elegida = []
     if longitud_palabra_elegida_validada == "": # CORRECCION: Falta una constante
-        for i in diccionario: # CORRECCION: Usar mejores nombres para las variables "palabra" era mejor
-            palabras_con_longitud_elegida.append(i)
+        for palabra in diccionario: # CORRECCION: Usar mejores nombres para las variables "palabra" era mejor
+            palabras_con_longitud_elegida.append(palabra)
         palabra = random.choice(palabras_con_longitud_elegida)
     else:
         for i in diccionario: # CORRECCION: Usar mejores nombres para las variables "palabra" era mejor
