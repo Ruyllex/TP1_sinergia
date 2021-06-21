@@ -57,6 +57,6 @@ def armar_diccionario(lista_de_palabras, texto):
     diccionario_palabras = {}
     lista_ordenada = sorted(lista_de_palabras)
     for palabra in lista_ordenada:
-        apariciones = apariciones_palabra_en_texto(palabra, texto)
+        apariciones = texto.count(palabra)
         diccionario_palabras[palabra] = apariciones
     return diccionario_palabras

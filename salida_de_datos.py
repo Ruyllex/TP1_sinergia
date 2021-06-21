@@ -10,16 +10,6 @@ def mostrar_mensaje(mensaje, cadena_secreta, aciertos, desaciertos, cadena_letra
 
 
 
-def apariciones_palabra_en_texto(palabra, texto):
-
-    """Cuenta las apariciones de cada palabra en el texto, y devuelve el resultado a la funcion armar_diccionario
-    Ruy Mori"""
-
-    # CORRECCION: La función es innecesaria. Tampoco es óptima porque se podría devolver directamente "texto.count(palabra)"
-
-    apariciones = texto.count(palabra)
-    return apariciones
-
 def elegir_palabra(diccionario, longitud_palabra_elegida_validada):
 
     """Elige una palabra aleatoria del diccionario para jugar, con la longitud que el jugador quiera, si elige una, sino, la palabra se elige de entre todas
@@ -46,8 +36,8 @@ def eliminar_tildes(texto):
     """elimina las tildes de la palabra. Zoilo Pazos"""
 
     lista = [("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"), ("ü", "u")]
-    for i in lista: # CORRECCION: Usar mejores nombres
-        texto = texto.replace(i[0], i[1])  # CORRECCION: Usar constantes
+    for caracter in lista:
+        texto = texto.replace(caracter[0], caracter[1])  # CORRECCION: Usar constantes
     return texto
 def contar_puntajes(aciertos, desaciertos):
 
