@@ -18,7 +18,7 @@ from texto import obtener_texto
 from cuerpo_funciones import *
 from entrada_de_datos import *
 from salida_de_datos import *
-
+from generar_diccionario import *
 def main():
 
     #CORRECCION: El main puede modularizarse más
