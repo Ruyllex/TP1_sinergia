@@ -442,7 +442,7 @@ def main():
 
         print("Tu puntaje total fue: ", puntaje_total)
 
-from texto import obtener_texto
+from texto_copia import obtener_texto
 import random
 main()
 
