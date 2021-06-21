@@ -72,10 +72,8 @@ def main():
         """Se evalua que tipo de condición cumple el ingreso de usuario y se repite hasta 
         que cumpla algunas de las condiciones de salida"""
         letra = input("Ingresar letra: ")
-        valida = validar_letra(letra)
-        repetida = verificar_repetido(letra,cadena_letras_repetidas)
-        letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
-        
+        letra_validada = validar_letra(letra)
+        letra_verificada = verificar_repetido(letra_validada,cadena_letras_repetidas)
 
         while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < 8 and cadena_secreta != palabra_adivinar:
 
@@ -97,9 +95,8 @@ def main():
             if lista_aciertos_desaciertos[1] < 8 and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
                 letra = input("Ingresar letra: ")
-                valida = validar_letra(letra)
-                repetida = verificar_repetido(letra,cadena_letras_repetidas)
-                letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
+                letra_validada = validar_letra(letra)
+                letra_verificada = permitir_letra(letra_validada,cadena_letras_repetidas)
 
 
         ultimo_mensaje(cadena_secreta,palabra_adivinar,lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1],cadena_letras_incorrectas)

@@ -1,6 +1,6 @@
 #---------- SALIDA DE DATOS--------------------#
 import random
-#from entrada_de_datos import validar_letra,verificar_repetido
+from entrada_de_datos import validar_letra,verificar_repetido
 
 def mostrar_mensaje(mensaje, cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas):
 
@@ -37,7 +37,7 @@ def eliminar_tildes(texto):
     return texto
 def contar_puntajes(aciertos, desaciertos):
 
-    """Cuenta la cantidad de puntos los aciertos valen 10 y los desaciertos valen -5. Zoilo Pazos"""
+    """Cuenta la cantidad de puntos los acirtos valen 10 y los desaciertos valen -5. Zoilo Pazos"""
 
     total_puntaje_de_palabra = aciertos * 10 + desaciertos * (-5) # CORRECCION: Usar constantes
     return total_puntaje_de_palabra # CORRECCION: Se puede retornar directamente "aciertos * 10 + ..."
@@ -106,9 +106,9 @@ def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
     
 
     if es_acierto:
-        aciertos += 1
+                aciertos += 1
     else:
-        desaciertos += 1
+                desaciertos += 1
     
     lista_aciertos_desaciertos = [aciertos,desaciertos]
     
@@ -121,24 +121,30 @@ def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_l
     """muestra el ultimo mensaje. Agustín Sánchez Vergara y Jorge Sedek """
     
     if cadena_secreta == palabra_adivinar :
-        aciertos += 1
-        mostrar_mensaje("Ganaste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
+            aciertos += 1
+            mostrar_mensaje("Ganaste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
 
     elif desaciertos == 8: # CORRECCION: Falta constante
             
-        #cadena_letras_incorrectas += letra
-        mostrar_mensaje("Perdiste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
+            #cadena_letras_incorrectas += letra
+            mostrar_mensaje("Perdiste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
 
 
-"""" se cambio esta funcion por devolver_letra_verificada(valida,repetida) , verificar_repetido(letra,cadena_letras_repetidas) y validar_letra(letra)"""
-# def permitir_letra(letra,cadena_letras_repetidas):
-#     
-#     """se asegura que letra no sea ni repetida ni invalida. Agustín Sánchez Vergara y Jorge Sedek"""
-#     
-#     while letra not in ("FIN", "0") and ((len(letra) > 1 or not letra.isalpha()) or letra in cadena_letras_repetidas):
-#         
-#         if len(letra) > 1 or not letra.isalpha():
-#             letra = validar_letra(letra)
-#         
-#         elif letra in cadena_letras_repetidas:
-#             letra = verificar_repetido(letra,cadena_letras_repetidas
+def permitir_letra(letra,cadena_letras_repetidas):
+    
+    """se asegura que letra no sea ni repetida ni invalida. Agustín Sánchez Vergara y Jorge Sedek"""
+    
+    while letra not in ("FIN", "0") and ((len(letra) > 1 or not letra.isalpha()) or letra in cadena_letras_repetidas):
+        
+        if len(letra) > 1 or not letra.isalpha():
+            letra = validar_letra(letra)
+        
+        elif letra in cadena_letras_repetidas:
+            letra = verificar_repetido(letra,cadena_letras_repetidas)
+            
+        
+              
+    
+    
+    return letra
+        
