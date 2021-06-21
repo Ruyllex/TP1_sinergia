@@ -148,7 +148,7 @@ def permitir_letra(letra,cadena_letras_repetidas):
     
     """se asegura que letra no sea ni repetida ni invalida. Agustín Sánchez Vergara y Jorge Sedek"""
     
-    while (len(letra) > 1 or not letra.isalpha()) or (letra in cadena_letras_repetidas):
+    while letra not in ("FIN", "0") and ((len(letra) > 1 or not letra.isalpha()) or letra in cadena_letras_repetidas):
         
         if len(letra) > 1 or not letra.isalpha():
             letra = validar_letra(letra)
