@@ -27,17 +27,16 @@ def main():
     intento = 1
     puntaje_total = 0
     respuesta = "si" 
+    cantidad_MAX_desaciertos=8
+
+    #Diccionario
+    texto = obtener_texto()
+    caracteres_especiales = identificar_caracter_especial(texto)
+    texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
+    lista_de_palabras = armar_lista_de_palabras(texto)
+    diccionario = armar_diccionario(lista_de_palabras, texto)
 
     while respuesta == "si":
-
-        # CORRECCION: Cada vez que se va a jugar una nueva partida, vuelven a procesar todo el texto, MAL
-
-        #Diccionario
-        texto = obtener_texto()
-        caracteres_especiales = identificar_caracter_especial(texto)
-        texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
-        lista_de_palabras = armar_lista_de_palabras(texto)
-        diccionario = armar_diccionario(lista_de_palabras, texto)
 
         #instrucciones para el usuario
         if intento == 1: instrucciones()
@@ -49,8 +48,6 @@ def main():
         #validación de palabra
         longitud_palabra_elegida = validar_longitud_palabra(longitud_palabra_elegida)
         palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
-
-
 
         #Inicialización de variables
         desaciertos = 0
@@ -94,7 +91,7 @@ def main():
                 cadena_letras_incorrectas += letra_verificada
 
             cadena_secreta = "".join(lista_secreta)
-            if lista_aciertos_desaciertos[1] < 8 and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
+            if lista_aciertos_desaciertos[1] < cantidad_MAX_desaciertos and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
                 letra = input("Ingresar letra: ")
                 valida = validar_letra(letra)
