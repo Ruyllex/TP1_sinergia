@@ -74,7 +74,7 @@ def main():
         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
         
 
-        while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < 8 and cadena_secreta != palabra_adivinar:
+        while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < cantidad_MAX_desaciertos and cadena_secreta != palabra_adivinar:
 
             letra_verificada = letra_verificada.lower()
             cadena_letras_repetidas += letra_verificada 
