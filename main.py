@@ -27,7 +27,7 @@ def main():
     intento = 1
     puntaje_total = 0
     respuesta = "si" 
-    cantidad_MAX_desaciertos=8
+    MAX_DESACIERTOS = 8
 
     #Diccionario
     texto = obtener_texto()
@@ -74,7 +74,11 @@ def main():
         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
         
 
-        while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < cantidad_MAX_desaciertos and cadena_secreta != palabra_adivinar:
+
+
+
+
+        while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < MAX_DESACIERTOS and cadena_secreta != palabra_adivinar:
 
             letra_verificada = letra_verificada.lower()
             cadena_letras_repetidas += letra_verificada 
@@ -91,7 +95,7 @@ def main():
                 cadena_letras_incorrectas += letra_verificada
 
             cadena_secreta = "".join(lista_secreta)
-            if lista_aciertos_desaciertos[1] < cantidad_MAX_desaciertos and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
+            if lista_aciertos_desaciertos[1] < MAX_DESACIERTOS and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
                 letra = input("Ingresar letra: ")
                 valida = validar_letra(letra)
