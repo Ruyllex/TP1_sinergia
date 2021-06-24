@@ -49,11 +49,14 @@ def armar_lista_de_palabras(texto):
             lista_palabras_sin_repetir.append(palabra.lower())
     return lista_palabras_sin_repetir
 
-def armar_diccionario(lista_de_palabras, texto):
+def armar_diccionario(texto):
 
     """Arma el diccionario con las palabras en orden alfabetico como claves, y cada una contiene la cantidad de veces que aparece en la cadena original
     Ruy Mori"""
-
+    
+    caracteres_especiales = identificar_caracter_especial(texto)
+    texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
+    lista_de_palabras = armar_lista_de_palabras(texto)
     diccionario_palabras = {}
     lista_ordenada = sorted(lista_de_palabras)
     for palabra in lista_ordenada:
