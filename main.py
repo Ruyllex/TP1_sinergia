@@ -20,22 +20,15 @@ from entrada_de_datos import *
 from salida_de_datos import *
 from generar_diccionario import *
 
-def main():
-
-    #CORRECCION: El main puede modularizarse más
-
+def jugar_ahorcado(diccionario):
+    
+    """Permite jugar al ahorcado """
+    
     intento = 1
     puntaje_total = 0
     respuesta = "si" 
-    cantidad_MAX_desaciertos=8
-
-    #Diccionario
-    texto = obtener_texto()
-    caracteres_especiales = identificar_caracter_especial(texto)
-    texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
-    lista_de_palabras = armar_lista_de_palabras(texto)
-    diccionario = armar_diccionario(lista_de_palabras, texto)
-
+    MAX_DESACIERTOS = 8
+    
     while respuesta == "si":
 
         #instrucciones para el usuario
@@ -74,7 +67,11 @@ def main():
         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
         
 
-        while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < cantidad_MAX_desaciertos and cadena_secreta != palabra_adivinar:
+
+
+
+
+        while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < MAX_DESACIERTOS and cadena_secreta != palabra_adivinar:
 
             letra_verificada = letra_verificada.lower()
             cadena_letras_repetidas += letra_verificada 
@@ -91,7 +88,7 @@ def main():
                 cadena_letras_incorrectas += letra_verificada
 
             cadena_secreta = "".join(lista_secreta)
-            if lista_aciertos_desaciertos[1] < cantidad_MAX_desaciertos and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
+            if lista_aciertos_desaciertos[1] < MAX_DESACIERTOS and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
                 letra = input("Ingresar letra: ")
                 valida = validar_letra(letra)
@@ -112,6 +109,21 @@ def main():
 
         print("Tu puntaje total fue: ", puntaje_total)
 
+
+def main():
+
+    #CORRECCION: El main puede modularizarse más
+
+    
+
+    #Diccionario
+    texto = obtener_texto()
+    caracteres_especiales = identificar_caracter_especial(texto)
+    texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
+    lista_de_palabras = armar_lista_de_palabras(texto)
+    diccionario = armar_diccionario(lista_de_palabras, texto)
+
+    jugar_ahorcado(diccionario)
 
 main()
 
