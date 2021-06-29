@@ -33,3 +33,26 @@ def ingresar_letra_en_lista_secreta(letra, lista_secreta, lista_posicion):
     for i in lista_posicion:
         lista_secreta[i] = letra
     return lista_secreta
+
+def validar_nombres():
+    
+    """Crea una lista con los nombres validos ingresados por los usuarios. Jorge Sedek"""
+    
+    nombres = []
+    print("Pueden jugar hasta 5 jugadores. Cuando haya ingresado todos los nombres ingrese ENTER")
+    i = 1
+    nombre = 1
+    while nombre !="" and i != 6:
+        
+        nombre = input("Ingrese el nombre del jugador {} : ".format(i))
+        if nombre != "":
+            if nombre not in nombres:
+                nombres.append(nombre)
+                i += 1
+            else:
+                print("Nombre ya ingresado")
+        
+        
+    return nombres
+
+    
