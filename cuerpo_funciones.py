@@ -35,12 +35,3 @@ def ingresar_letra_en_lista_secreta(letra, lista_secreta, lista_posicion):
     for i in lista_posicion:
         lista_secreta[i] = letra
     return lista_secreta
-
-
-
-
-
- 
-        
-
-    
