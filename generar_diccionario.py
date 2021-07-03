@@ -35,7 +35,7 @@ def eliminar_caracteres_especiales(texto, caracteres_especiales):
     LONGITUD1 = len(caracteres_especiales)
     for i in range(LONGITUD1):
             texto = texto.replace(caracteres_especiales[i], " ")
-    return texto #esto deberia ser una linea del main() porque la funcion esta haciendo 2 cosas # CORRECCION: ver la correccion del fondo del archivo
+    return texto
 
 def armar_lista_de_palabras(texto):
 
