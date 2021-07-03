@@ -140,3 +140,48 @@ def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_l
 #         
 #         elif letra in cadena_letras_repetidas:
 #             letra = verificar_repetido(letra,cadena_letras_repetidas
+
+def validar_nombres():
+    
+    """Crea una lista con los nombres validos ingresados por los usuarios. Jorge Sedek"""
+    
+    nombres = []
+    print("Pueden jugar hasta 5 jugadores. Cuando haya ingresado todos los nombres ingrese ENTER")
+    i = 1
+    nombre = 1
+    while nombre !="" and i != 6:
+        
+        nombre = input("Ingrese el nombre del jugador {} : ".format(i))
+        if nombre != "":
+            if nombre not in nombres:
+                nombres.append(nombre)
+                i += 1
+            else:
+                print("Nombre ya ingresado")
+        
+        
+    return nombres
+
+def ordenar_nombres_aleatoriamente(nombres):
+    
+    """Ordena una lista de nombres de manera aleatoria. Jorge Sedek"""
+    
+    nombres_ordenados = []
+    
+    for i in range(len(nombres[:])):
+        nombre = random.choice(nombres)
+        nombres_ordenados.append(nombre)
+        nombres.remove(nombre)
+    
+    return nombres_ordenados
+
+def crear_diccionario_asignacion_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario):
+    
+    """Crea un diccionario que asigna las palabras a adivinar a los usuarios"""
+    
+    dicc_usuario_palabra = {}
+    
+    for nombre in nombres_ordenados:
+        dicc_usuario_palabra[nombre] = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
+    
+    return dicc_usuario_palabra

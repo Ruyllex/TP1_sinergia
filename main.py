@@ -35,7 +35,7 @@ def main():
     texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
     lista_de_palabras = armar_lista_de_palabras(texto)
     diccionario = armar_diccionario(lista_de_palabras, texto)
-
+    
     while respuesta == "si":
 
         #instrucciones para el usuario
