@@ -1,6 +1,11 @@
 from generar_diccionario_copia import eliminar_caracteres_especiales, armar_lista_de_palabras
 from salida_de_datos import eliminar_tildes
 from os import close
+import time
+incio=time.time()
+cuentos = open("archivos_txt/Cuentos.txt", "r", encoding='utf-8-sig')
+araña_negra = open("archivos_txt/La araña negra - tomo 1.txt", "r", encoding='utf-8-sig')
+mil_noches = open("archivos_txt/Las 1000 Noches y 1 Noche.txt", "r", encoding='utf-8-sig')
 
 def leer_lineas(archivo, contador):
     linea = archivo.readline()
@@ -35,33 +40,33 @@ def my_function(texto, contador, diccionario, lista_palabras):
 
 
 
+def main():
+    contador = 0
+    diccionario = {}
+    lista_palabras = []
+    lista_palabras_sin_repetir = []
 
-contador = 0
-diccionario = {}
-lista_palabras = []
-lista_palabras_sin_repetir = []
+    lista_y_dic_lineal = my_function(cuentos, contador, diccionario, lista_palabras)
+    for palabra in lista_y_dic_lineal[0]:
+        lista_palabras_sin_repetir.append(palabra)
+    diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+    cuentos.close()
 
-cuentos = open("archivos_txt/Cuentos.txt", "r", encoding='utf-8-sig')
-lista_y_dic_lineal = my_function(cuentos, contador, diccionario, lista_palabras)
-for palabra in lista_y_dic_lineal[0]:
-    lista_palabras_sin_repetir.append(palabra)
-diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-cuentos.close()
+    
+    lista_y_dic_lineal = my_function(araña_negra, contador, diccionario, lista_palabras)
+    for palabra in lista_y_dic_lineal[0]:
+        lista_palabras_sin_repetir.append(palabra)
+    diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+    araña_negra.close()
 
-araña_negra = open("archivos_txt/La araña negra - tomo 1.txt", "r", encoding='utf-8-sig')
-lista_y_dic_lineal = my_function(araña_negra, contador, diccionario, lista_palabras)
-for palabra in lista_y_dic_lineal[0]:
-    lista_palabras_sin_repetir.append(palabra)
-diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-araña_negra.close()
+    
+    lista_y_dic_lineal = my_function(mil_noches, contador, diccionario, lista_palabras)
+    for palabra in lista_y_dic_lineal[0]:
+        lista_palabras_sin_repetir.append(palabra)
+    diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+    mil_noches.close()
 
-mil_noches = open("archivos_txt/Las 1000 Noches y 1 Noche.txt", "r", encoding='utf-8-sig')
-lista_y_dic_lineal = my_function(mil_noches, contador, diccionario, lista_palabras)
-for palabra in lista_y_dic_lineal[0]:
-    lista_palabras_sin_repetir.append(palabra)
-diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-mil_noches.close()
-
+main()
 # prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')
 # lista_y_dic_lineal = my_function(prueba, contador, diccionario, lista_palabras)
 # for palabra in lista_y_dic_lineal[0]:
@@ -77,7 +82,9 @@ mil_noches.close()
 # diccionario = {**diccionario, **lista_y_dic_lineal[1]}
 # prueba2.close()
 
-print(lista_palabras_sin_repetir, "\n", "\n", diccionario)
+
+fin=time.time()
+print(fin-incio)
 # close(cuentos)
 # close(araÃ±a_negra)
 # close(mil_noches)

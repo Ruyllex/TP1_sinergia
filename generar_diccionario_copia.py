@@ -1,5 +1,6 @@
 
 # DESDE ACÁ LA PARTE DEL DICCIONARIO
+import string
 
 
 
@@ -31,7 +32,8 @@ def eliminar_caracteres_especiales(texto):
 
     """Elimina los caracteres no alfabeticos de la cadena
     Ruy Mori"""
-    caracteres_especiales = [",", ".", ";", ":", "-", "_", "¡", "!", "?", "¿", "*", "{", "}", "[", "]", "(", ")", "/", "'", '"']
+    caracteres_especiales=string.punctuation
+    caracteres_especiales=caracteres_especiales.split() 
     LONGITUD1 = len(caracteres_especiales)
     for i in range(LONGITUD1):
             texto = texto.replace(caracteres_especiales[i], " ")
