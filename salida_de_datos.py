@@ -175,13 +175,15 @@ def ordenar_nombres_aleatoriamente(nombres):
     
     return nombres_ordenados
 
-def crear_diccionario_asignacion_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario):
+def crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario):
     
     """Crea un diccionario que asigna las palabras a adivinar a los usuarios"""
     
     dicc_usuario_palabra = {}
-    
-    for nombre in nombres_ordenados:
-        dicc_usuario_palabra[nombre] = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
+    palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
+    palabra_secreta = esconder_palabra(palabra_adivinar)
+        for nombre in nombres_ordenados:
+        dicc_usuario_palabra[nombre] = [ palabra_adivinar, palabra_secreta]
     
     return dicc_usuario_palabra
+
