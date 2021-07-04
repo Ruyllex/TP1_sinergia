@@ -13,8 +13,9 @@ def leer_lineas(archivo, contador):
     return devolucion
 
 def my_function(texto, contador, diccionario, lista_palabras):
-    if texto == prueba: indice_diccionario = 0
-    elif texto == prueba2: indice_diccionario = 1
+    if texto == cuentos: indice_diccionario = 0
+    elif texto == araña_negra: indice_diccionario = 1
+    else: indice_diccionario = 2
 
     linea = leer_lineas(texto, contador)
 
@@ -32,29 +33,49 @@ def my_function(texto, contador, diccionario, lista_palabras):
     lista_palabras.sort()
     return [lista_palabras, diccionario]
 
-# cuentos = open("archivos_txt/Cuentos.txt", "r")
-# araÃ±a_negra = open("archivos_txt/La araÃ±a negra - tomo 1.txt", "r")
-# mil_noches = open("archivos_txt/Las 1000 Noches y 1 Noche.txt", "r")
+
+
 
 contador = 0
 diccionario = {}
 lista_palabras = []
 lista_palabras_sin_repetir = []
 
-prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')
-lista_y_dic_lineal = my_function(prueba, contador, diccionario, lista_palabras)
+cuentos = open("archivos_txt/Cuentos.txt", "r", encoding='utf-8-sig')
+lista_y_dic_lineal = my_function(cuentos, contador, diccionario, lista_palabras)
 for palabra in lista_y_dic_lineal[0]:
     lista_palabras_sin_repetir.append(palabra)
 diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-prueba.close()
+cuentos.close()
 
-prueba2 = open("archivos_txt/prueba2.txt", "r", encoding='utf-8-sig')
-lista_palabras = []
-lista_y_dic_lineal = my_function(prueba2, contador, diccionario, lista_palabras)
+araña_negra = open("archivos_txt/La araña negra - tomo 1.txt", "r", encoding='utf-8-sig')
+lista_y_dic_lineal = my_function(araña_negra, contador, diccionario, lista_palabras)
 for palabra in lista_y_dic_lineal[0]:
     lista_palabras_sin_repetir.append(palabra)
 diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-prueba2.close()
+araña_negra.close()
+
+mil_noches = open("archivos_txt/Las 1000 Noches y 1 Noche.txt", "r", encoding='utf-8-sig')
+lista_y_dic_lineal = my_function(mil_noches, contador, diccionario, lista_palabras)
+for palabra in lista_y_dic_lineal[0]:
+    lista_palabras_sin_repetir.append(palabra)
+diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+mil_noches.close()
+
+# prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')
+# lista_y_dic_lineal = my_function(prueba, contador, diccionario, lista_palabras)
+# for palabra in lista_y_dic_lineal[0]:
+#     lista_palabras_sin_repetir.append(palabra)
+# diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+# prueba.close()
+
+# prueba2 = open("archivos_txt/prueba2.txt", "r", encoding='utf-8-sig')
+# lista_palabras = []
+# lista_y_dic_lineal = my_function(prueba2, contador, diccionario, lista_palabras)
+# for palabra in lista_y_dic_lineal[0]:
+#     lista_palabras_sin_repetir.append(palabra)
+# diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+# prueba2.close()
 
 print(lista_palabras_sin_repetir, "\n", "\n", diccionario)
 # close(cuentos)
