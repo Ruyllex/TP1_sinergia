@@ -31,8 +31,7 @@ def main():
 
     #Diccionario
     texto = obtener_texto()
-    caracteres_especiales = identificar_caracter_especial(texto)
-    texto = eliminar_caracteres_especiales(texto, caracteres_especiales).lower()
+    texto = eliminar_caracteres_especiales(texto).lower()
     lista_de_palabras = armar_lista_de_palabras(texto)
     diccionario = armar_diccionario(lista_de_palabras, texto)
     
