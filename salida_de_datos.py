@@ -1,5 +1,6 @@
 #---------- SALIDA DE DATOS--------------------#
 import random
+from cuerpo_funciones import esconder_palabra
 #from entrada_de_datos import validar_letra,verificar_repetido
 
 def mostrar_mensaje(mensaje, cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas):
@@ -182,7 +183,7 @@ def crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccio
     dicc_usuario_palabra = {}
     palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
     palabra_secreta = esconder_palabra(palabra_adivinar)
-        for nombre in nombres_ordenados:
+    for nombre in nombres_ordenados:
         dicc_usuario_palabra[nombre] = [ palabra_adivinar, palabra_secreta]
     
     return dicc_usuario_palabra
