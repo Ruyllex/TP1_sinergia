@@ -35,7 +35,7 @@ def eliminar_tildes(texto):
     letra_sin_tilde=1
     lista = [("á", "a"), ("é", "e"), ("í", "i"), ("ó", "o"), ("ú", "u"), ("ü", "u")]
     for caracter in lista:
-        texto = texto.replace(caracter[letra_con_tilde], caracter[letra_sin_tilde])  
+        texto = texto.replace(caracter[letra_con_tilde], caracter[letra_sin_tilde])
     return texto
 def contar_puntajes(aciertos, desaciertos):
 

@@ -20,12 +20,12 @@ def leer_lineas(archivo, contador):
 def my_function(texto, contador, diccionario, lista_palabras):
     if texto == cuentos: indice_diccionario = 0
     elif texto == araña_negra: indice_diccionario = 1
-    else: indice_diccionario = 2
+    elif texto == mil_noches: indice_diccionario = 2
 
     linea = leer_lineas(texto, contador)
 
     while linea:
-        linea_limpia = eliminar_tildes(eliminar_caracteres_especiales(linea))
+        linea_limpia = eliminar_caracteres_especiales(eliminar_tildes(linea))
         linea_listada = linea_limpia.split(" ")
         for palabra in linea_listada:
             if len(palabra) >= 5:
@@ -65,8 +65,8 @@ def main():
         lista_palabras_sin_repetir.append(palabra)
     diccionario = {**diccionario, **lista_y_dic_lineal[1]}
     mil_noches.close()
-    print(diccionario)
     print(lista_palabras_sin_repetir)
+    print(len(lista_palabras_sin_repetir))
 
 main()
 # prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')
