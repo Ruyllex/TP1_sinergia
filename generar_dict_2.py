@@ -65,6 +65,8 @@ def main():
         lista_palabras_sin_repetir.append(palabra)
     diccionario = {**diccionario, **lista_y_dic_lineal[1]}
     mil_noches.close()
+    print(diccionario)
+    print(lista_palabras_sin_repetir)
 
 main()
 # prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')

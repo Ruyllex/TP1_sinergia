@@ -13,14 +13,13 @@ def eliminar_caracteres_especiales(texto):
             texto = texto.replace(caracteres_especiales[i], " ")
     return texto
 
-def armar_lista_de_palabras(texto):
+def armar_lista_de_palabras(texto, lista_palabras_sin_repetir):
 
     """Arma la lista de palabras, sin repetir, todas en minuscula y de minimo 5 caracteres
     Ruy Mori"""
 
     lista_palabras_sin_repetir = []
-    lista_palabras = texto.split(" ")
-    for palabra in lista_palabras:
+    for palabra in texto:
         if palabra.lower() not in lista_palabras_sin_repetir and palabra != '' and len(palabra) >= 5: # CORRECCION: Faltan constantes
             lista_palabras_sin_repetir.append(palabra.lower())
     return lista_palabras_sin_repetir
