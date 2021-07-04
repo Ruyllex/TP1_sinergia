@@ -1,6 +1,5 @@
 
 # DESDE ACÁ LA PARTE DEL DICCIONARIO
-import string
 
 
 
@@ -28,25 +27,24 @@ def lista_caracteres_especiales(caracter, caracteres_especiales):
         caracteres_especiales.append(caracter)
     return caracteres_especiales
 
-def eliminar_caracteres_especiales(texto):
+def eliminar_caracteres_especiales(texto, caracteres_especiales):
 
     """Elimina los caracteres no alfabeticos de la cadena
     Ruy Mori"""
-    caracteres_especiales=string.punctuation
-    caracteres_especiales=caracteres_especiales.split() 
+
     LONGITUD1 = len(caracteres_especiales)
     for i in range(LONGITUD1):
             texto = texto.replace(caracteres_especiales[i], " ")
     return texto
 
-def armar_lista_de_palabras(linea_listada, lista_palabras_sin_repetir):
+def armar_lista_de_palabras(texto):
 
     """Arma la lista de palabras, sin repetir, todas en minuscula y de minimo 5 caracteres
     Ruy Mori"""
 
-    # lista_palabras_sin_repetir = []
-    # lista_palabras = texto.split(" ")
-    for palabra in linea_listada:
+    lista_palabras_sin_repetir = []
+    lista_palabras = texto.split(" ")
+    for palabra in lista_palabras:
         if palabra.lower() not in lista_palabras_sin_repetir and palabra != '' and len(palabra) >= 5: # CORRECCION: Faltan constantes
             lista_palabras_sin_repetir.append(palabra.lower())
     return lista_palabras_sin_repetir

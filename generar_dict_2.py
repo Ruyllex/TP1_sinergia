@@ -1,4 +1,4 @@
-from generar_diccionario_copia import eliminar_caracteres_especiales, armar_lista_de_palabras
+from generar_diccionario import eliminar_caracteres_especiales, armar_lista_de_palabras
 from salida_de_datos import eliminar_tildes
 from os import close
 import time
