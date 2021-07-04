@@ -17,7 +17,7 @@ def leer_lineas(archivo, contador):
     else: devolucion = ''
     return devolucion
 
-def my_function(texto, contador, diccionario, lista_palabras):
+def my_function(texto, contador, diccionario):
     if texto == cuentos: indice_diccionario = 0
     elif texto == araña_negra: indice_diccionario = 1
     elif texto == mil_noches: indice_diccionario = 2
@@ -33,10 +33,8 @@ def my_function(texto, contador, diccionario, lista_palabras):
                     diccionario[palabra] = [0, 0, 0]
                     diccionario[palabra][indice_diccionario] += 1
                 else: diccionario[palabra][indice_diccionario] += 1
-        lista_palabras = armar_lista_de_palabras(linea_listada, lista_palabras)
         linea = leer_lineas(texto, contador)
-    lista_palabras.sort()
-    return [lista_palabras, diccionario]
+    return diccionario
 
 
 
@@ -46,27 +44,26 @@ def main():
     lista_palabras = []
     lista_palabras_sin_repetir = []
 
-    lista_y_dic_lineal = my_function(cuentos, contador, diccionario, lista_palabras)
-    for palabra in lista_y_dic_lineal[0]:
-        lista_palabras_sin_repetir.append(palabra)
-    diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+    diccionario = my_function(cuentos, contador, diccionario)
     cuentos.close()
 
     
-    lista_y_dic_lineal = my_function(araña_negra, contador, diccionario, lista_palabras)
-    for palabra in lista_y_dic_lineal[0]:
-        lista_palabras_sin_repetir.append(palabra)
-    diccionario = {**diccionario, **lista_y_dic_lineal[1]}
+    diccionario = my_function(araña_negra, contador, diccionario)
     araña_negra.close()
 
     
-    lista_y_dic_lineal = my_function(mil_noches, contador, diccionario, lista_palabras)
-    for palabra in lista_y_dic_lineal[0]:
-        lista_palabras_sin_repetir.append(palabra)
-    diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-    mil_noches.close()
-    print(lista_palabras_sin_repetir)
+    diccionario = my_function(mil_noches, contador, diccionario)
+    lista_palabras_sin_repetir = list(diccionario.keys())
+    lista_palabras_sin_repetir.sort()
     print(len(lista_palabras_sin_repetir))
+    print(len(diccionario))
+    mil_noches.close()
+
+    palabras = open("palabras.csv", "w", encoding="utf-8-sig")
+    for palabra in lista_palabras_sin_repetir:
+        palabras.write(palabra + "," + str(diccionario[palabra][0]) + "," + str(diccionario[palabra][1]) + "," + str(diccionario[palabra][2]) + "\n")
+    palabras.close()
+
 
 main()
 # prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')
