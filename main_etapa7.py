@@ -99,6 +99,8 @@ def main():
 
         palabra_adivinada = False
         jugador = 0
+        if intento == 1:
+            ganadores = []
         while not palabra_adivinada and len(nombres_ordenados) != 0:
                 if jugador >= len(nombres_ordenados) :
                     jugador = 0
@@ -113,6 +115,7 @@ def main():
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
+                    ganadores.append(ganador)
                     
                     ultimo_mensaje("".join(dicc_palabra_adivinar_e_secreta[nombre][1]),dicc_palabra_adivinar_e_secreta[nombre][0],dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1],dicc_repetidas_incorrectas[nombre][1])
                     print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))
