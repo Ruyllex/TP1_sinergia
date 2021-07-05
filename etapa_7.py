@@ -1,25 +1,38 @@
-dicc_jugadores = crear_diccionario_asignacion_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario)
+from texto import obtener_texto
+from cuerpo_funciones import *
+from entrada_de_datos import *
+from salida_de_datos import *
+from generar_diccionario import *
+import random
 
-def turno_de_un_jugador(nombre,cadena_letras_repetidas,dicc_usuario_palabra,lista_aciertos_desaciertos):
+PTOS_ACIERTOS = 2
+PTOS_DESACIERTOS = -1
 
-    while not es_acierto:
+
+
+def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos):
+    es_acierto = True
+    while es_acierto:
         letra = input("Ingresar letra: ")
         valida = validar_letra(letra)
-        repetida = verificar_repetido(letra,cadena_letras_repetidas)
-        letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
+        repetida = verificar_repetido(letra,dicc_repetidas_incorrectas[nombre][0])
+        letra_verificada = devolver_letra_verificada(valida,repetida,dicc_repetidas_incorrectas[nombre][0],letra)
         letra_verificada = letra_verificada.lower()
-        cadena_letras_repetidas += letra_verificada 
-        es_acierto = letra_verificada in palabra_adivinar
-        lista_aciertos_desaciertos = contador_aciertos_desaciertos(es_acierto, lista_aciertos_desaciertos)
+        dicc_repetidas_incorrectas[nombre][0] += letra_verificada
+        
+        es_acierto = letra_verificada in dicc_palabra_adivinar_e_secreta[nombre][0] 
+        dicc_aciertos_desaciertos[nombre] = contador_aciertos_desaciertos(es_acierto, dicc_aciertos_desaciertos[nombre])
 
         if es_acierto:
-            lista_posicion = posicion_letra_en_palabra(letra_verificada, palabra_adivinar) #lista con las posiciones que esta la letra
-            lista_secreta  = ingresar_letra_en_lista_secreta(letra_verificada, lista_secreta, lista_posicion) #cambia listas de ???? x ?a?a
+            lista_posicion = posicion_letra_en_palabra(letra_verificada, dicc_palabra_adivinar_e_secreta[nombre][0]) #lista con las posiciones que esta la letra
+            dicc_palabra_adivinar_e_secreta[nombre][1]  = ingresar_letra_en_lista_secreta(letra_verificada, dicc_palabra_adivinar_e_secreta[nombre][1], lista_posicion) #cambia listas de ???? x ?a?a
 
 
         else:
-            cadena_letras_incorrectas += letra_verificada
+            dicc_repetidas_incorrectas[nombre][1] += letra_verificada
 
-        cadena_secreta = "".join(lista_secreta)
-    
+        cadena_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
+        puntaje_jugador = puntaje(dicc_aciertos_desaciertos[nombre][0],dicc_aciertos_desaciertos[nombre][1],PTOS_ACIERTOS,PTOS_DESACIERTOS)
+
+# Informacion que deberia guardar: nombre, dicc_letras_repetidas_incorrecctas, dicc_usuario_palabra, dicc_aciertos_desaciertos , puntaje
 

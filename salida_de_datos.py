@@ -180,11 +180,42 @@ def crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccio
     
     """Crea un diccionario que asigna las palabras a adivinar a los usuarios"""
     
-    dicc_usuario_palabra = {}
-    palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
-    palabra_secreta = esconder_palabra(palabra_adivinar)
-    for nombre in nombres_ordenados:
-        dicc_usuario_palabra[nombre] = [ palabra_adivinar, palabra_secreta]
+    dicc_palabra_adivinar_e_secreta = {}
     
-    return dicc_usuario_palabra
+    
+    for nombre in nombres_ordenados:
+        palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
+        cadena_secreta = esconder_palabra(palabra_adivinar)
+        lista_secreta = list(cadena_secreta)
+        dicc_palabra_adivinar_e_secreta[nombre] = [ palabra_adivinar, lista_secreta]
+    
+    return dicc_palabra_adivinar_e_secreta
+
+def crear_diccionario_aciertos_desaciertos(nombres_ordenados):
+    
+    """Crea un diccionario con los aciertos y desaciertos"""
+    
+    desaciertos = 0
+    aciertos = 0
+    dicc_aciertos_desaciertos = {}
+        
+    for nombre in nombres_ordenados:
+        dicc_aciertos_desaciertos[nombre] = [ aciertos, desaciertos]
+    
+    return dicc_aciertos_desaciertos
+    
+def crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados):
+    
+    """ Crea un diccionario con las letras repetidas y incorrectas"""
+    
+    cadena_letras_repetidas = ""
+    cadena_letras_incorrectas = ""
+    dicc_repetidas_incorrectas = {}
+    
+    for nombre in nombres_ordenados:
+        dicc_repetidas_incorrectas[nombre] = [cadena_letras_repetidas,cadena_letras_incorrectas] 
+    
+    return dicc_repetidas_incorrectas
+    
+    
 
