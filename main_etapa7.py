@@ -101,30 +101,31 @@ def main():
 
         palabra_adivinada = False
         jugador = 0
+        participantes = nombres_ordenados[:]
         while not palabra_adivinada and len(nombres_ordenados) != 0:
                 if jugador >= len(nombres_ordenados) :
                     jugador = 0
                 nombre = nombres_ordenados[jugador]
                 turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje)
                 if dicc_aciertos_desaciertos[nombre][1] >= MAX_DESACIERTOS:
-                    ultimo_mensaje("".join(dicc_palabra_adivinar_e_secreta[nombre][1]),dicc_palabra_adivinar_e_secreta[nombre][0],dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1],dicc_repetidas_incorrectas[nombre][1])
-                    print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))
                     nombres_ordenados.remove(nombre)
                     jugador = jugador - 1
 
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
+                    dicc_puntaje[nombre][0] += PUNTOS_ADIVINA_PALABRA
                     
-                    
-                    ultimo_mensaje("".join(dicc_palabra_adivinar_e_secreta[nombre][1]),dicc_palabra_adivinar_e_secreta[nombre][0],dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1],dicc_repetidas_incorrectas[nombre][1])
-                    print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))
+                if len(nombres_ordenados) == 0:
+                    for nombre in participantes:
+                        dicc_puntaje[nombre][0] -= PUNTOS_RESTA_GANA_PROGRAMA
+                        
                     
                 
                 jugador += 1
                     
                 
-                    
+        print(dicc_puntaje)
                 
                 
                 

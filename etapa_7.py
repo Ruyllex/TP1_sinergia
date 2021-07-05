@@ -15,6 +15,8 @@ def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_
     es_acierto = True
     cadena_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
     while es_acierto and not descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta):
+        if dicc_aciertos_desaciertos[nombre][0] == 0 and dicc_aciertos_desaciertos[nombre][1] == 0:
+             print(f"{cadena_secreta}\t\tAciertos: {dicc_aciertos_desaciertos[nombre][0]:1}\t\tDesaciertos: {dicc_aciertos_desaciertos[nombre][1]:1} - {dicc_repetidas_incorrectas[nombre][1]}")
         letra = input(f"{nombre} → Ingresar letra: ")
         valida = validar_letra(letra)
         repetida = verificar_repetido(letra,dicc_repetidas_incorrectas[nombre][0])
@@ -25,7 +27,7 @@ def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_
         dicc_repetidas_incorrectas[nombre][0] += letra_verificada
         
         es_acierto = letra_verificada in dicc_palabra_adivinar_e_secreta[nombre][0] 
-        mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1], dicc_repetidas_incorrectas[nombre][1])
+        
         dicc_aciertos_desaciertos[nombre] = contador_aciertos_desaciertos(es_acierto, dicc_aciertos_desaciertos[nombre])
 
         if es_acierto:
@@ -37,6 +39,7 @@ def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_
             dicc_repetidas_incorrectas[nombre][1] += letra_verificada
 
         cadena_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
+        mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1], dicc_repetidas_incorrectas[nombre][1])
     puntaje_jugador = puntaje(dicc_aciertos_desaciertos[nombre][0],dicc_aciertos_desaciertos[nombre][1],PUNTOS_ACIERTOS,PUNTOS_DESACIERTOS)
     dicc_puntaje[nombre][0] += puntaje_jugador
     return 
