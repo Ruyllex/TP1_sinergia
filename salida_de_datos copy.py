@@ -142,21 +142,21 @@ def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_l
 #         elif letra in cadena_letras_repetidas:
 #             letra = verificar_repetido(letra,cadena_letras_repetidas
 
-def validar_nombres(MAX_USUARIOS):
+def validar_nombres():
     
     """Crea una lista con los nombres validos ingresados por los usuarios. Jorge Sedek"""
     
     nombres = []
-    print(f"Pueden jugar hasta {MAX_USUARIOS} jugadores. Cuando haya ingresado todos los nombres ingrese ENTER")
-    cantidad = 1
+    print("Pueden jugar hasta 5 jugadores. Cuando haya ingresado todos los nombres ingrese ENTER")
+    i = 1
     nombre = 1
-    while nombre !="" and cantidad <= MAX_USUARIOS:
+    while nombre !="" and i != 6:
         
-        nombre = input("Ingrese el nombre del jugador {} : ".format(cantidad))
+        nombre = input("Ingrese el nombre del jugador {} : ".format(i))
         if nombre != "":
             if nombre not in nombres:
                 nombres.append(nombre)
-                cantidad += 1
+                i += 1
             else:
                 print("Nombre ya ingresado")
         
@@ -181,9 +181,8 @@ def crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccio
     """Crea un diccionario que asigna las palabras a adivinar a los usuarios"""
     
     dicc_palabra_adivinar_e_secreta = {}
-    if longitud_palabra_elegida=='':
-        longitud_palabra_elegida=random.randint(5,16)
-
+    
+    
     for nombre in nombres_ordenados:
         palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
         cadena_secreta = esconder_palabra(palabra_adivinar)
@@ -242,6 +241,6 @@ def crear_diccionario_puntaje(nombres_ordenados):
     
     return dicc_puntaje
     
-
-
+    
+    
     

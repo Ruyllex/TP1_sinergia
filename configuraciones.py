@@ -37,3 +37,4 @@ def check(diccionario):
         mensaje = "Se mantienen los valores por defecto"
     return mensaje
 
+print(constantes())

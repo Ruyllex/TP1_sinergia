@@ -5,7 +5,7 @@ def validar_letra(letra):
     """Devuelve un booleano que dice si la letra es valida o no. Leonardo Ayuso"""
 
     # CORRECCIÓN: Mala modularización, ya tienen una función que pide el ingreso. Lo que debería hacer esta función es indicar si la letra es válida o no, y eso lo debe agarrar la función externa y decidir que hacer
-    if (len(letra) != 1 or not letra.isalpha()) and (letra not in ("FIN","0")) :
+    if (len(letra) != 1 or not letra.isalpha()) or (letra in ("FIN","0")) :
         valida = False
     else:
         valida = True
@@ -31,8 +31,11 @@ def devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra):
     
     while not valida or repetida :
         if not valida:
-            print("Ingreso inválido: ingresar solo UNA letra")
-            letra = input("Ingresar letra: ")
+            if letra in ("FIN","0"):
+                letra="FIN"
+            else:
+                print("Ingreso inválido: ingresar solo UNA letra")
+                letra = input("Ingresar letra: ")
         elif repetida:
             print("Letra ya ingresada")
             letra = input("Ingresar letra: ")

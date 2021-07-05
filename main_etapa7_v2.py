@@ -106,7 +106,7 @@ def main():
                 
                 if len(nombres_ordenados) == 0:
                     for nombre in participantes:
-                        dicc_puntaje[nombre][0] -= PTOS_DESACIERTOS
+                        dicc_puntaje[nombre][0] -= PUNTOS_DESACIERTOS
                 
                 
                     

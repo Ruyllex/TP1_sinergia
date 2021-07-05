@@ -88,9 +88,9 @@ def main():
 #         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
 
         
-       # nombres = validar_nombres()
-       # nombres_ordenados = ordenar_nombres_aleatoriamente(nombres)
-        nombres_ordenados = ["pepe","pipin","papu"]
+        nombres = validar_nombres(MAX_USUARIOS)
+        nombres_ordenados = ordenar_nombres_aleatoriamente(nombres)
+        #nombres_ordenados = ["pepe","pipin","papu"]
         mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
         longitud_palabra_elegida = input(mensaje)
         cadena_secreta = ""
@@ -101,22 +101,22 @@ def main():
         dicc_puntaje = crear_diccionario_puntaje(nombres_ordenados)
         
         palabra_adivinada = False
-        i = 0
+        jugador = 0
         while not palabra_adivinada and len(nombres_ordenados) != 0:
-                if i >= len(nombres_ordenados) :
-                    i = 0
-                nombre = nombres_ordenados[i]
+                if jugador >= len(nombres_ordenados) :
+                    jugador = 0
+                nombre = nombres_ordenados[jugador]
                 turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje)
                 if dicc_aciertos_desaciertos[nombre][1] >= MAX_DESACIERTOS:
                     nombres_ordenados.remove(nombre)
-                    i = i - 1
+                    jugador = jugador - 1
                 
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
                     
                 
-                i += 1
+                jugador += 1
                     
                 
                     
