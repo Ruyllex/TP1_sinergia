@@ -197,11 +197,11 @@ def crear_diccionario_aciertos_desaciertos(nombres_ordenados):
     
     desaciertos = 0
     aciertos = 0
-    puntaje = 0
+    
     dicc_aciertos_desaciertos = {}
         
     for nombre in nombres_ordenados:
-        dicc_aciertos_desaciertos[nombre] = [ aciertos, desaciertos, puntaje]
+        dicc_aciertos_desaciertos[nombre] = [ aciertos, desaciertos]
     
     return dicc_aciertos_desaciertos
     
@@ -219,3 +219,17 @@ def crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados):
     return dicc_repetidas_incorrectas
     
 puntaje = lambda x,y,a,b: a*x + b*y
+
+def crear_diccionario_puntaje(nombres_ordenados):
+    
+    puntaje_jugador = 0
+    
+    dicc_puntaje = {}
+    for nombre in nombres_ordenados:
+        dicc_puntaje[nombre] = [puntaje_jugador] 
+    
+    return dicc_puntaje
+    
+    
+    
+    
