@@ -1,8 +1,7 @@
 from generar_diccionario import eliminar_caracteres_especiales, armar_lista_de_palabras
 from salida_de_datos import eliminar_tildes
 from os import close
-import time
-incio=time.time()
+
 
 def leer_lineas(archivo, contador):
     linea = archivo.readline()
@@ -82,8 +81,7 @@ def generar_palaras_csv():
 # prueba2.close()
 
 
-fin=time.time()
-print(fin-incio)
+
 # close(cuentos)
 # close(araÃ±a_negra)
 # close(mil_noches)

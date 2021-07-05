@@ -29,8 +29,8 @@ def constantes():
 def check(diccionario):
     '''chequea si el diccionario es distinto al default'''
     if diccionario!=diccionario_default:
-        mensaje="configuración"
+        mensaje="Los valores por defecto en el archivo han sido cambiados"
     else:
-        mensaje="omisión"
+        mensaje="Se mantienen los valores por defecto"
     return mensaje
 

@@ -27,7 +27,7 @@ import random
 def main():
 
     #CORRECCION: El main puede modularizarse más
-    dicc_constantes=constantes()
+    dicc_constantes=constantes() #esta en configuraciones
     configuraciones=check(dicc_constantes)
     print(configuraciones)
     intento = 1
