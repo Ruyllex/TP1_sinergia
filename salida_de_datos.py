@@ -217,5 +217,4 @@ def crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados):
     
     return dicc_repetidas_incorrectas
     
-    
-
+puntaje = lambda x,y,a,b: a*x + b*y
