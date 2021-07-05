@@ -14,6 +14,7 @@
 
 """
 #---------IMPORTES--------------------------#
+from configuraciones import constantes
 from texto import obtener_texto
 from cuerpo_funciones import *
 from entrada_de_datos import *
@@ -26,7 +27,7 @@ import random
 def main():
 
     #CORRECCION: El main puede modularizarse más
-
+    dicc_constantes=constantes()
     intento = 1
     puntaje_total = 0
     respuesta = "si" 
