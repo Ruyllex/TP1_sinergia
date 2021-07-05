@@ -30,7 +30,7 @@ def main():
     intento = 1
     puntaje_total = 0
     respuesta = "si" 
-    MAX_DESACIERTOS = 2
+    MAX_DESACIERTOS = 1
 
     #Diccionario
     texto = obtener_texto()
@@ -90,6 +90,7 @@ def main():
         
         palabra_adivinada = False
         i = 0
+        participantes = nombres_ordenados[:]
         while not palabra_adivinada and len(nombres_ordenados) != 0:
                 if i >= len(nombres_ordenados) :
                     i = 0
@@ -102,12 +103,18 @@ def main():
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
+                
+                if len(nombres_ordenados) == 0:
+                    for nombre in participantes:
+                        dicc_puntaje[nombre][0] -= PTOS_DESACIERTOS
+                
+                
                     
                 
                 i += 1
                     
                 
-                    
+        print(dicc_puntaje)         
                 
                 
                 
