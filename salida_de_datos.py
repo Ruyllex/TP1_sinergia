@@ -7,9 +7,9 @@ def mostrar_mensaje(mensaje, cadena_secreta, aciertos, desaciertos, cadena_letra
 
     """Muestra resultados. Leonardo Ayuso"""
     if aciertos == 0 and desaciertos == 0:
-        print(f"{cadena_secreta}\t\tAciertos: {aciertos:1}\t\tDesaciertos: {desaciertos:1} - {cadena_letras_incorrectas}")
+        print(f"{cadena_secreta}\t\tAciertos: {aciertos:1}\t\tDesaciertos: {desaciertos:1} - {cadena_letras_incorrectas}\n")
     else:
-        print(f"{mensaje:<20}{cadena_secreta}\t\tAciertos: {aciertos:1}\t\tDesaciertos: {desaciertos:1} - {cadena_letras_incorrectas}")
+        print(f"{mensaje:<20}{cadena_secreta}\t\tAciertos: {aciertos:1}\t\tDesaciertos: {desaciertos:1} - {cadena_letras_incorrectas}\n")
 
 
 

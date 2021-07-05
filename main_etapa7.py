@@ -92,7 +92,7 @@ def main():
             
         nombres_ordenados = ordenar_nombres_aleatoriamente(nombres,ganador)
         #nombres_ordenados = ["pepe","pipin","papu"]
-        mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
+        mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: \n"
         longitud_palabra_elegida = input(mensaje)
         cadena_secreta = ""
         #inicializar diccionarios
