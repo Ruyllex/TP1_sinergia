@@ -19,6 +19,7 @@ from cuerpo_funciones import *
 from entrada_de_datos import *
 from salida_de_datos import *
 from generar_diccionario import *
+from generar_dict_2 import *
 
 def main():
 
@@ -30,10 +31,9 @@ def main():
     MAX_DESACIERTOS = 8
 
     #Diccionario
-    texto = obtener_texto()
-    texto = eliminar_caracteres_especiales(texto).lower()
-    lista_de_palabras = armar_lista_de_palabras(texto)
-    diccionario = armar_diccionario(lista_de_palabras, texto)
+    diccionario=generar_diccionario()
+    generar_palaras_csv()#archiva las palabras en palabras.csv
+
     
     while respuesta == "si":
 
