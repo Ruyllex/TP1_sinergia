@@ -17,7 +17,7 @@ def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_
         letra = input(f"{nombre} → Ingresar letra: ")
         valida = validar_letra(letra)
         repetida = verificar_repetido(letra,dicc_repetidas_incorrectas[nombre][0])
-        letra_verificada = devolver_letra_verificada(valida,repetida,dicc_repetidas_incorrectas[nombre][0],letra)
+        letra_verificada = devolver_letra_verificada(nombre, valida,repetida,dicc_repetidas_incorrectas[nombre][0],letra)
         letra_verificada = letra_verificada.lower()
         if letra_verificada == "fin":
             es_acierto=False
