@@ -37,7 +37,7 @@ def main():
 
     #Diccionario
     diccionario=generar_diccionario()
-    generar_palaras_csv()
+    generar_palaras_csv(diccionario)
     
     while respuesta == "si":
 

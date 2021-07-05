@@ -53,9 +53,8 @@ def generar_diccionario():
     mil_noches.close()
     return diccionario
 
-def generar_palaras_csv():
+def generar_palaras_csv(diccionario):
     #almacena las palabras en palabras.csv
-    diccionario=generar_diccionario()
     lista_palabras_sin_repetir=list(diccionario.keys())
     lista_palabras_sin_repetir.sort()
     palabras = open("palabras.csv", "w", encoding="utf-8-sig")
