@@ -7,7 +7,7 @@ from configuraciones import constantes
 import random
 diccionario_con_constantes=constantes()
 PUNTOS_ACIERTOS = diccionario_con_constantes['PUNTOS_ACIERTOS']
-PUNTOS_DESACIERTOS = -(diccionario_con_constantes['PUNTOS_DESACIERTOS'])
+PUNTOS_DESACIERTOS = (diccionario_con_constantes['PUNTOS_DESACIERTOS'])
 
 
 

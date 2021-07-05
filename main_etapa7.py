@@ -30,7 +30,8 @@ def main():
     #--------CONSTANTES-----------------
     MAX_USUARIOS=dicc_constantes['MAX_USUARIOS']
     LONG_PALABRA_MIN=dicc_constantes['LONG_PALABRA_MIN']
-    MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
+    #MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
+    MAX_DESACIERTOS=1
     PUNTOS_ADIVINA_PALABRA=dicc_constantes['PUNTOS_ADIVINA_PALABRA']
     PUNTOS_RESTA_GANA_PROGRAMA=dicc_constantes['PUNTOS_RESTA_GANA_PROGRAMA']
 
@@ -86,8 +87,9 @@ def main():
 #         repetida = verificar_repetido(letra,cadena_letras_repetidas)
 #         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
 
-        
-        nombres = validar_nombres(MAX_USUARIOS)
+        if intento == 1:
+            nombres = validar_nombres(MAX_USUARIOS)
+            
         nombres_ordenados = ordenar_nombres_aleatoriamente(nombres,ganador)
         #nombres_ordenados = ["pepe","pipin","papu"]
         mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
