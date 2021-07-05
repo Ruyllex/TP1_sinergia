@@ -22,6 +22,9 @@ def constantes():
         except IndexError:
             diccionario=diccionario_default
             linea=''
+        except ValueError:
+            diccionario=diccionario_default
+            linea=''
     configuraciones.close()
     if diccionario_default.keys() != diccionario.keys():
         diccionario=diccionario_default
