@@ -14,7 +14,7 @@
 
 """
 #---------IMPORTES--------------------------#
-from configuraciones import constantes
+from configuraciones import check, constantes
 from texto import obtener_texto
 from cuerpo_funciones import *
 from entrada_de_datos import *
@@ -28,16 +28,16 @@ def main():
 
     #CORRECCION: El main puede modularizarse más
     dicc_constantes=constantes()
+    configuraciones=check(dicc_constantes)
+    print(configuraciones)
     intento = 1
     puntaje_total = 0
     respuesta = "si" 
     MAX_DESACIERTOS = 2
 
     #Diccionario
-    texto = obtener_texto()
-    texto = eliminar_caracteres_especiales(texto).lower()
-    lista_de_palabras = armar_lista_de_palabras(texto)
-    diccionario = armar_diccionario(lista_de_palabras, texto)
+    diccionario=generar_diccionario()
+    generar_palaras_csv()
     
     while respuesta == "si":
 
