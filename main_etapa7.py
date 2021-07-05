@@ -29,6 +29,22 @@ def main():
     #CORRECCION: El main puede modularizarse más
     dicc_constantes=constantes() #esta en configuraciones
     configuraciones=check(dicc_constantes)
+    #--------CONSTANTES-----------------
+    MAX_USUARIOS=dicc_constantes['MAX_USUARIOS']
+    LONG_PALABRA_MIN=dicc_constantes['LONG_PALABRA_MIN']
+    MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
+    PUNTOS_ACIERTOS=dicc_constantes['PUNTOS_ACIERTOS']
+    PUNTOS_DESACIERTOS=dicc_constantes['PUNTOS_DESACIERTOS']
+    PUNTOS_ADIVINA_PALABRA=dicc_constantes['PUNTOS_ADIVINA_PALABRA']
+    PUNTOS_RESTA_GANA_PROGRAMA=dicc_constantes['PUNTOS_RESTA_GANA_PROGRAMA']
+    print(f"{'Configuraciones':*^80}")
+    print('MAX_USUARIOS: '+str(MAX_USUARIOS))
+    print('LONG_PALABRA_MIN: '+str(LONG_PALABRA_MIN))
+    print('MAX_DESACIERTOS: '+str(MAX_DESACIERTOS))
+    print('PUNTOS_ACIERTOS: '+str(PUNTOS_ACIERTOS))
+    print('PUNTOS_DESACIERTOS: '+str(PUNTOS_DESACIERTOS))
+    print('PUNTOS_ADIVINA_PALABRA: '+str(PUNTOS_ADIVINA_PALABRA))
+    print('PUNTOS_RESTA_GANA_PROGRAMA: '+str(PUNTOS_RESTA_GANA_PROGRAMA))
     print(configuraciones)
     intento = 1
     puntaje_total = 0
