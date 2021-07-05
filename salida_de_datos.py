@@ -261,3 +261,5 @@ def mostrar_diccionarios(nombres,dicc1,dicc2,dicc3,ganador):
         if ganador:
             print("El ganador fue {}".format(ganador))
     
+#def diccionario_total(nombres,intentos,dicc_Puntaje,dicc_aciertos_desaciertos,ganadores):
+    
