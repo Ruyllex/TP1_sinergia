@@ -204,6 +204,17 @@ def crear_diccionario_aciertos_desaciertos(nombres_ordenados):
         dicc_aciertos_desaciertos[nombre] = [ aciertos, desaciertos]
     
     return dicc_aciertos_desaciertos
+
+def descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta):
+    
+    """booleano que muestra si se descubrio la palabra secreta"""
+    
+    palabra_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
+    palabra_adivinar = dicc_palabra_adivinar_e_secreta[nombre][0]
+    
+    return palabra_secreta == palabra_adivinar
+
+
     
 def crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados):
     

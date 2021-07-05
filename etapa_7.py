@@ -12,7 +12,7 @@ PTOS_DESACIERTOS = -1
 
 def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje):
     es_acierto = True
-    while es_acierto:
+    while es_acierto and not descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta):
         letra = input("Ingresar letra: ")
         valida = validar_letra(letra)
         repetida = verificar_repetido(letra,dicc_repetidas_incorrectas[nombre][0])
