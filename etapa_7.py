@@ -13,7 +13,9 @@ PUNTOS_DESACIERTOS = -(diccionario_con_constantes['PUNTOS_DESACIERTOS'])
 
 def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje):
     es_acierto = True
+    cadena_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
     while es_acierto and not descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta):
+        mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1], dicc_repetidas_incorrectas[nombre][1])
         letra = input(f"{nombre} → Ingresar letra: ")
         valida = validar_letra(letra)
         repetida = verificar_repetido(letra,dicc_repetidas_incorrectas[nombre][0])

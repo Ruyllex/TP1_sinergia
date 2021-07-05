@@ -106,12 +106,17 @@ def main():
                 nombre = nombres_ordenados[jugador]
                 turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje)
                 if dicc_aciertos_desaciertos[nombre][1] >= MAX_DESACIERTOS:
+                    ultimo_mensaje("".join(dicc_palabra_adivinar_e_secreta[nombre][1]),dicc_palabra_adivinar_e_secreta[nombre][0],dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1],dicc_repetidas_incorrectas[nombre][1])
+                    print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))
                     nombres_ordenados.remove(nombre)
                     jugador = jugador - 1
                 
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
+                    
+                    ultimo_mensaje("".join(dicc_palabra_adivinar_e_secreta[nombre][1]),dicc_palabra_adivinar_e_secreta[nombre][0],dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1],dicc_repetidas_incorrectas[nombre][1])
+                    print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))
                     
                 
                 jugador += 1
@@ -159,7 +164,7 @@ def main():
 #         #Se le pregunta al jugador si quiere volver a jugar, si nó devuelve el puntaje total
 #         #puntaje_inicial=0
 # 
-#         puntaje_total = puntaje_total + contar_puntajes(lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1])
+#         puntaje_total = puntaje_total + contar_puntajes(lista_aciertos_desaciertos[0], lista_TO_desaciertos[1])
 #         respuesta = input("Queres seguir jugando? si/no: ").lower() #CORRECCION: No hay validaciones
 # 
 #         intento += 1
