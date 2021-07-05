@@ -21,7 +21,7 @@ def generar_diccionario():
     contador = 0
     diccionario = {}
 
-    def my_function(texto, contador, diccionario):
+    def armar_diccionario(texto, contador, diccionario):
         if texto == cuentos: indice_diccionario = 0
         elif texto == araña_negra: indice_diccionario = 1
         elif texto == mil_noches: indice_diccionario = 2
@@ -41,15 +41,15 @@ def generar_diccionario():
         return diccionario
 
 
-    diccionario = my_function(cuentos, contador, diccionario)
+    diccionario = armar_diccionario(cuentos, contador, diccionario)
     cuentos.close()
 
     
-    diccionario = my_function(araña_negra, contador, diccionario)
+    diccionario = armar_diccionario(araña_negra, contador, diccionario)
     araña_negra.close()
 
     
-    diccionario = my_function(mil_noches, contador, diccionario)
+    diccionario = armar_diccionario(mil_noches, contador, diccionario)
     mil_noches.close()
     return diccionario
 
