@@ -7,16 +7,30 @@ def leer_lineas(archivo):
     else: devolucion = ''
     return devolucion
 
+diccionario_default={'MAX_USUARIOS': 10, 'LONG_PALABRA_MIN': 5, 'MAX_DESACIERTOS': 7, 'PUNTOS_ACIERTOS': 10, 'PUNTOS_DESACIERTOS': 5, 'PUNTOS_ADIVINA_PALABRA': 100, 'PUNTOS_RESTA_GANA_PROGRAMA': 20}
+
 def constantes():
-    '''returna diccionario con las constantes del configuracion.csv'''
+    '''retorna un diccionario con las constantes del configuracion.csv'''
     configuraciones=open("configuracion.csv","rt")
     linea=leer_lineas(configuraciones)
-    dicc={}
+    diccionario={}
     while linea!='':
         linea=linea.split(",")
-        dicc[linea[0]]=int(linea[1])
-        linea=leer_lineas(configuraciones)
+        try:
+            diccionario[linea[0]]=int(linea[1])
+            linea=leer_lineas(configuraciones)
+        except IndexError:
+            diccionario=diccionario_default
+            linea=''
     configuraciones.close()
-    return dicc
-
+    if diccionario_default.keys() != diccionario.keys():
+        diccionario=diccionario_default
+    return diccionario
+def check(diccionario):
+    '''chequea si el diccionario es distinto al default'''
+    if diccionario!=diccionario_default:
+        mensaje="configuración"
+    else:
+        mensaje="omisión"
+    return mensaje
 
