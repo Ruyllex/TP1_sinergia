@@ -41,8 +41,7 @@ def main():
     print(verificacion_configuraciones)
     intento = 1
     puntaje_total = 0
-    respuesta = "si" 
-    MAX_DESACIERTOS = 2
+    respuesta = "si"
 
     #Diccionario
     diccionario=generar_diccionario()
@@ -85,7 +84,7 @@ def main():
 #         repetida = verificar_repetido(letra,cadena_letras_repetidas)
 #         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
 
-        
+
         nombres = validar_nombres(MAX_USUARIOS)
         nombres_ordenados = ordenar_nombres_aleatoriamente(nombres)
         #nombres_ordenados = ["pepe","pipin","papu"]
@@ -97,7 +96,7 @@ def main():
         dicc_aciertos_desaciertos = crear_diccionario_aciertos_desaciertos(nombres_ordenados)
         dicc_repetidas_incorrectas = crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados)
         dicc_puntaje = crear_diccionario_puntaje(nombres_ordenados)
-        
+
         palabra_adivinada = False
         jugador = 0
         while not palabra_adivinada and len(nombres_ordenados) != 0:
@@ -110,7 +109,7 @@ def main():
                     print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))
                     nombres_ordenados.remove(nombre)
                     jugador = jugador - 1
-                
+
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
