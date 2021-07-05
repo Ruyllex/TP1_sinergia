@@ -4,21 +4,23 @@ from os import close
 import time
 incio=time.time()
 
+def leer_lineas(archivo, contador):
+    linea = archivo.readline()
+    linea = linea.rstrip('\n')
+    if linea:
+        devolucion = linea
+    elif not linea and contador < 6:
+        devolucion = leer_lineas(archivo, contador + 1)
+    else: devolucion = ''
+    return devolucion
+
 def generar_diccionario():
     #genera el diccionario
     cuentos = open("archivos_txt/Cuentos.txt", "r", encoding='utf-8-sig')
     araña_negra = open("archivos_txt/La araña negra - tomo 1.txt", "r", encoding='utf-8-sig')
     mil_noches = open("archivos_txt/Las 1000 Noches y 1 Noche.txt", "r", encoding='utf-8-sig')
-
-    def leer_lineas(archivo, contador):
-        linea = archivo.readline()
-        linea = linea.rstrip('\n')
-        if linea:
-            devolucion = linea
-        elif not linea and contador < 6:
-            devolucion = leer_lineas(archivo, contador + 1)
-        else: devolucion = ''
-        return devolucion
+    contador = 0
+    diccionario = {}
 
     def my_function(texto, contador, diccionario):
         if texto == cuentos: indice_diccionario = 0
@@ -39,9 +41,6 @@ def generar_diccionario():
             linea = leer_lineas(texto, contador)
         return diccionario
 
-
-    contador = 0
-    diccionario = {}
 
     diccionario = my_function(cuentos, contador, diccionario)
     cuentos.close()
