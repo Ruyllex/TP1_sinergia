@@ -10,7 +10,7 @@ PTOS_DESACIERTOS = -1
 
 
 
-def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos):
+def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje):
     es_acierto = True
     while es_acierto:
         letra = input("Ingresar letra: ")
@@ -33,6 +33,6 @@ def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_
 
         cadena_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
     puntaje_jugador = puntaje(dicc_aciertos_desaciertos[nombre][0],dicc_aciertos_desaciertos[nombre][1],PTOS_ACIERTOS,PTOS_DESACIERTOS)
-    dicc_aciertos_desaciertos[nombre][2] += puntaje_jugador
+    dicc_puntaje[nombre][0] += puntaje_jugador
 # Informacion que deberia guardar: nombre, dicc_letras_repetidas_incorrecctas, dicc_usuario_palabra, dicc_aciertos_desaciertos , puntaje
 

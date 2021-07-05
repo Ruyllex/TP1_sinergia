@@ -19,7 +19,8 @@ from texto import obtener_texto
 from cuerpo_funciones import *
 from entrada_de_datos import *
 from salida_de_datos import *
-from generar_diccionario import *
+
+from generar_dict_2 import *
 from etapa_7 import *
 import random
 
@@ -85,10 +86,11 @@ def main():
         dicc_palabra_adivinar_e_secreta = crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario)
         dicc_aciertos_desaciertos = crear_diccionario_aciertos_desaciertos(nombres_ordenados)
         dicc_repetidas_incorrectas = crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados)
+        dicc_puntaje = crear_diccionario_puntaje(nombres_ordenados)
         nombre = nombres_ordenados[0]
         while dicc_aciertos_desaciertos[nombre][1] < 8:
             for nombre in nombres_ordenados:
-                turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos)
+                turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje)
                 if dicc_aciertos_desaciertos[nombre][1] >= MAX_DESACIERTOS:
                     nombres_ordenados.remove(nombre)
             
