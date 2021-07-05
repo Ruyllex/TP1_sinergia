@@ -25,7 +25,7 @@ def verificar_repetido(letra,cadena_letras_repetidas):
         
     return repetida
 
-def devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra):
+def devolver_letra_verificada(nombre,valida,repetida,cadena_letras_repetidas,letra):
     
     """Pide al usuario reingresar la letra hasta que sea valida y no este repetida. Jorge Sedek"""
     
@@ -35,10 +35,10 @@ def devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra):
                 letra="FIN"
             else:
                 print("Ingreso inválido: ingresar solo UNA letra")
-                letra = input("Ingresar letra: ")
+                letra = input(f"{nombre} → Ingresar letra: ")
         elif repetida:
             print("Letra ya ingresada")
-            letra = input("Ingresar letra: ")
+            letra = input(f"{nombre} → Ingresar letra: ")
         repetida = verificar_repetido(letra,cadena_letras_repetidas)
         valida = validar_letra(letra)
 

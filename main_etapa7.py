@@ -33,8 +33,6 @@ def main():
     MAX_USUARIOS=dicc_constantes['MAX_USUARIOS']
     LONG_PALABRA_MIN=dicc_constantes['LONG_PALABRA_MIN']
     MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
-    PUNTOS_ACIERTOS=dicc_constantes['PUNTOS_ACIERTOS']
-    PUNTOS_DESACIERTOS=dicc_constantes['PUNTOS_DESACIERTOS']
     PUNTOS_ADIVINA_PALABRA=dicc_constantes['PUNTOS_ADIVINA_PALABRA']
     PUNTOS_RESTA_GANA_PROGRAMA=dicc_constantes['PUNTOS_RESTA_GANA_PROGRAMA']
     print(f"{'Configuraciones':*^80}")
