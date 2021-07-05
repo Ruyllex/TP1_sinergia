@@ -15,14 +15,12 @@
 """
 #---------IMPORTES--------------------------#
 from configuraciones import check, constantes
-from texto import obtener_texto
 from cuerpo_funciones import *
 from entrada_de_datos import *
 from salida_de_datos import *
-
 from generar_dict_2 import *
 from etapa_7 import *
-import random
+
 
 def main():
 
@@ -35,18 +33,22 @@ def main():
     MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
     PUNTOS_ADIVINA_PALABRA=dicc_constantes['PUNTOS_ADIVINA_PALABRA']
     PUNTOS_RESTA_GANA_PROGRAMA=dicc_constantes['PUNTOS_RESTA_GANA_PROGRAMA']
-    print(f"{'Configuraciones':*^80}")
-    for configuraciones in dicc_constantes:
-        print(f'{configuraciones}: {dicc_constantes[configuraciones]}')
-    print(verificacion_configuraciones)
+
     intento = 1
     puntaje_total = 0
     respuesta = "si"
+    ganador=None
 
     #Diccionario
     diccionario=generar_diccionario()
     generar_palaras_csv(diccionario)
-    
+
+    #-------------mostrar configuraciones-----------
+    print(f"{'Configuraciones':*^80}")
+    for configuraciones in dicc_constantes:
+        print(f'{configuraciones}: {dicc_constantes[configuraciones]}')
+    print(verificacion_configuraciones)
+
     while respuesta == "si":
 
         #instrucciones para el usuario
@@ -84,9 +86,9 @@ def main():
 #         repetida = verificar_repetido(letra,cadena_letras_repetidas)
 #         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
 
-
+        
         nombres = validar_nombres(MAX_USUARIOS)
-        nombres_ordenados = ordenar_nombres_aleatoriamente(nombres)
+        nombres_ordenados = ordenar_nombres_aleatoriamente(nombres,ganador)
         #nombres_ordenados = ["pepe","pipin","papu"]
         mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
         longitud_palabra_elegida = input(mensaje)
@@ -99,8 +101,6 @@ def main():
 
         palabra_adivinada = False
         jugador = 0
-        if intento == 1:
-            ganadores = []
         while not palabra_adivinada and len(nombres_ordenados) != 0:
                 if jugador >= len(nombres_ordenados) :
                     jugador = 0
@@ -115,7 +115,7 @@ def main():
                 palabra_adivinada = descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta)
                 if palabra_adivinada:
                     ganador = nombre
-                    ganadores.append(ganador)
+                    
                     
                     ultimo_mensaje("".join(dicc_palabra_adivinar_e_secreta[nombre][1]),dicc_palabra_adivinar_e_secreta[nombre][0],dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1],dicc_repetidas_incorrectas[nombre][1])
                     print("\nTu puntaje fue: ",contar_puntajes(dicc_aciertos_desaciertos[nombre][0], dicc_aciertos_desaciertos[nombre][1]))

@@ -165,17 +165,24 @@ def validar_nombres(MAX_USUARIOS):
         
     return nombres
 
-def ordenar_nombres_aleatoriamente(nombres):
+
+def ordenar_nombres_aleatoriamente(nombres,ganador):
     
     """Ordena una lista de nombres de manera aleatoria. Jorge Sedek"""
-    
+
     nombres_ordenados = []
-    
-    for i in range(len(nombres[:])):
+    if ganador:
+        nombres.remove(ganador)
+        nombres_ordenados.append(ganador)
+        for nombre in range(1,len(nombres[:])):
+            nombre = random.choice(nombres)
+            nombres_ordenados.append(nombre)
+            nombres.remove(nombre)
+    for nombre in range(len(nombres[:])):
         nombre = random.choice(nombres)
         nombres_ordenados.append(nombre)
         nombres.remove(nombre)
-    
+
     return nombres_ordenados
 
 def crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario):
