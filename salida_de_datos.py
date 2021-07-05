@@ -197,10 +197,11 @@ def crear_diccionario_aciertos_desaciertos(nombres_ordenados):
     
     desaciertos = 0
     aciertos = 0
+    puntaje = 0
     dicc_aciertos_desaciertos = {}
         
     for nombre in nombres_ordenados:
-        dicc_aciertos_desaciertos[nombre] = [ aciertos, desaciertos]
+        dicc_aciertos_desaciertos[nombre] = [ aciertos, desaciertos, puntaje]
     
     return dicc_aciertos_desaciertos
     
