@@ -30,7 +30,8 @@ def main():
     #--------CONSTANTES-----------------
     MAX_USUARIOS=dicc_constantes['MAX_USUARIOS']
     LONG_PALABRA_MIN=dicc_constantes['LONG_PALABRA_MIN']
-    MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
+    #MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
+    MAX_DESACIERTOS=2
     PUNTOS_ADIVINA_PALABRA=dicc_constantes['PUNTOS_ADIVINA_PALABRA']
     PUNTOS_RESTA_GANA_PROGRAMA=dicc_constantes['PUNTOS_RESTA_GANA_PROGRAMA']
 
@@ -125,8 +126,8 @@ def main():
                 
                 jugador += 1
                     
-                
-        print(dicc_puntaje)
+            
+        mostrar_diccionarios(nombres_ordenados,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)
                 
                 
                 
