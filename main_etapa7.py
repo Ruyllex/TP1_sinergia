@@ -24,7 +24,7 @@ from etapa_7 import *
 
 def main():
 
-    #CORRECCION: El main puede modularizarse más
+    
     dicc_constantes=constantes() #esta en configuraciones
     verificacion_configuraciones=check(dicc_constantes)
     #--------CONSTANTES-----------------
@@ -55,37 +55,6 @@ def main():
         #instrucciones para el usuario
         if intento == 1: instrucciones()
 
-#         #Elección de palabra
-#         mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
-#         longitud_palabra_elegida = input(mensaje)
-# 
-#         #validación de palabra
-#         longitud_palabra_elegida = validar_longitud_palabra(longitud_palabra_elegida)
-#         palabra_adivinar = eliminar_tildes(elegir_palabra(diccionario, longitud_palabra_elegida))
-# 
-#         #Inicialización de variables
-#         desaciertos = 0
-#         aciertos = 0
-#         lista_aciertos_desaciertos = [aciertos,desaciertos]
-#         cadena_letras_incorrectas = ""
-#         cadena_letras_repetidas = ""
-#         cadena_secreta = esconder_palabra(palabra_adivinar)
-# 
-#         lista_secreta = list(cadena_secreta)
-#         cadena_secreta = "".join(lista_secreta)
-# 
-#         #Se le pregunta por 1era vez al usuario que adivine una letra
-# 
-#         mostrar_mensaje("Palabra a adivinar(sin tildes): ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
-# 
-# 
-# 
-#         """Se evalua que tipo de condición cumple el ingreso de usuario y se repite hasta 
-#         que cumpla algunas de las condiciones de salida"""
-#         letra = input("Ingresar letra: ")
-#         valida = validar_letra(letra)
-#         repetida = verificar_repetido(letra,cadena_letras_repetidas)
-#         letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
 
         if intento == 1:
             nombres = validar_nombres(MAX_USUARIOS)
