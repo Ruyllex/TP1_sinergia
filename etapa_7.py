@@ -16,8 +16,7 @@ def turno_de_un_jugador(nombre,dicc_repetidas_incorrectas,dicc_palabra_adivinar_
     cadena_secreta = "".join(dicc_palabra_adivinar_e_secreta[nombre][1])
     while es_acierto and not descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta):
         if dicc_aciertos_desaciertos[nombre][0] == 0 and dicc_aciertos_desaciertos[nombre][1] == 0:
-             print(f"Usuario:{nombre}\n{cadena_secreta}\t\tAciertos: {dicc_aciertos_desaciertos[nombre][0]:1}\t\tDesaciertos: {dicc_aciertos_desaciertos[nombre][1]:1} - {dicc_repetidas_incorrectas[nombre][1]}\n")
-        
+            print(f"Usuario:{nombre}\n{cadena_secreta}\t\tAciertos: {dicc_aciertos_desaciertos[nombre][0]:1}\t\tDesaciertos: {dicc_aciertos_desaciertos[nombre][1]:1} - {dicc_repetidas_incorrectas[nombre][1]}\n")
         letra = input(f"{nombre} → Ingresar letra: ")
         valida = validar_letra(letra)
         repetida = verificar_repetido(letra,dicc_repetidas_incorrectas[nombre][0])

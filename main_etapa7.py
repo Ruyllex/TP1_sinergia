@@ -39,10 +39,12 @@ def main():
     puntaje_total = 0
     respuesta = "si"
     ganador=None
+    
 
     #Diccionario
     diccionario=generar_diccionario()
     generar_palaras_csv(diccionario)
+    diccionario_total={}
 
     #-------------mostrar configuraciones-----------
     print(f"{'Configuraciones':*^80}")
@@ -52,6 +54,7 @@ def main():
 
     while respuesta == "si":
 
+        
         #instrucciones para el usuario
         if intento == 1: instrucciones()
 
@@ -92,23 +95,20 @@ def main():
                     for nombre in nombres:
                         dicc_puntaje[nombre][0] -= PUNTOS_RESTA_GANA_PROGRAMA
                         
-                    
-                
+                            
                 jugador += 1
-                    
-            
-        mostrar_diccionarios(nombres,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)
+        sumar_partidas(dicc_puntaje,dicc_aciertos_desaciertos,diccionario_total,nombres,intento,ganador)            
+        
+        mostrar_diccionarios(nombres,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)  
+
                 
-                
-                
-            
-
-
-
-
-
         respuesta = input("Queres seguir jugando? si/no: ").lower()
         intento += 1
+    print(f"{'Puntaje total':*^80}")
+    diccionario_total=dict(sorted(diccionario_total.items(),key=lambda i: i[0][0]))
+    mostrar_ultimo_diccionario(diccionario_total)
+    print(f'se jugaron: {intento-1} partidas')
+    
         
 
 main()

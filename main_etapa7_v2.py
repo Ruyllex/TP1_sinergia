@@ -109,7 +109,7 @@ def main():
                         dicc_puntaje[nombre][0] -= PUNTOS_DESACIERTOS
                 
                 
-                    
+                
                 
                 i += 1
                     

@@ -262,7 +262,11 @@ def mostrar_diccionarios(nombres,dicc1,dicc2,dicc3,ganador):
         print("Su puntaje fue {}\n".format(dicc3[nombre][0]))
         if ganador:
             print("El ganador fue {}".format(ganador))
-    
+
+def mostrar_ultimo_diccionario(diccionario):
+    for jugadores in diccionario:
+        print(f'{jugadores} el puntaje total fue: {diccionario[jugadores][0]},    aciertos: {diccionario[jugadores][1]},    desaciertos: {diccionario[jugadores][2]}')
+
 # =============================================================================
 # def diccionario_total(nombres,intentos,dicc_puntaje,dicc_aciertos_desaciertos,ganadores):
 #     dicc_total = {}
