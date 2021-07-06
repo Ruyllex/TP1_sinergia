@@ -72,7 +72,8 @@ def main():
 
         palabra_adivinada = False
         jugador = 0
-        participantes = nombres_ordenados[:]
+        nombres = nombres_ordenados[:]
+        
         while not palabra_adivinada and len(nombres_ordenados) != 0:
                 if jugador >= len(nombres_ordenados) :
                     jugador = 0
@@ -88,7 +89,7 @@ def main():
                     dicc_puntaje[nombre][0] += PUNTOS_ADIVINA_PALABRA
                     
                 if len(nombres_ordenados) == 0:
-                    for nombre in participantes:
+                    for nombre in nombres:
                         dicc_puntaje[nombre][0] -= PUNTOS_RESTA_GANA_PROGRAMA
                         
                     
@@ -96,55 +97,19 @@ def main():
                 jugador += 1
                     
             
-        mostrar_diccionarios(participantes,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)
+        mostrar_diccionarios(nombres,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)
                 
                 
                 
             
-# sale cuando :
-                    #alguien adivino la palabra
-                    #todos cometen el  max de desaciertos
 
 
 
-#         while letra_verificada not in ("FIN", "0") and lista_aciertos_desaciertos[1] < MAX_DESACIERTOS and cadena_secreta != palabra_adivinar:
-# 
-#             letra_verificada = letra_verificada.lower()
-#             cadena_letras_repetidas += letra_verificada 
-#             es_acierto = letra_verificada in palabra_adivinar
-# 
-#             lista_aciertos_desaciertos = contador_aciertos_desaciertos(es_acierto, lista_aciertos_desaciertos)
-# 
-#             if es_acierto:
-#                 lista_posicion = posicion_letra_en_palabra(letra_verificada, palabra_adivinar) #lista con las posiciones que esta la letra
-#                 lista_secreta  = ingresar_letra_en_lista_secreta(letra_verificada, lista_secreta, lista_posicion) #cambia listas de ???? x ?a?a
-# 
-# 
-#             else:
-#                 cadena_letras_incorrectas += letra_verificada
-# 
-#             cadena_secreta = "".join(lista_secreta)
-#             if lista_aciertos_desaciertos[1] < MAX_DESACIERTOS and cadena_secreta != palabra_adivinar: # CORRECCION: Usar constantes
-#                 mostrar_mensaje(mostrar_mensaje_progreso(es_acierto), cadena_secreta, lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1], cadena_letras_incorrectas) # CORRECCION: Usar constantes
-#                 letra = input("Ingresar letra: ")
-#                 valida = validar_letra(letra)
-#                 repetida = verificar_repetido(letra,cadena_letras_repetidas)
-#                 letra_verificada = devolver_letra_verificada(valida,repetida,cadena_letras_repetidas,letra)
-# 
-# 
-#         ultimo_mensaje(cadena_secreta,palabra_adivinar,lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1],cadena_letras_incorrectas)
-#         print("\nTu puntaje fue: ",contar_puntajes(lista_aciertos_desaciertos[0], lista_aciertos_desaciertos[1]))
-# 
-#         #Se le pregunta al jugador si quiere volver a jugar, si nó devuelve el puntaje total
-#         #puntaje_inicial=0
-# 
-#         puntaje_total = puntaje_total + contar_puntajes(lista_aciertos_desaciertos[0], lista_TO_desaciertos[1])
-#         respuesta = input("Queres seguir jugando? si/no: ").lower() #CORRECCION: No hay validaciones
-# 
-#         intento += 1
-# 
-#         print("Tu puntaje total fue: ", puntaje_total)
 
+
+        respuesta = input("Queres seguir jugando? si/no: ").lower()
+        intento += 1
+        
 
 main()
 
