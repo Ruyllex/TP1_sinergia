@@ -96,7 +96,7 @@ def main():
                 jugador += 1
                     
             
-        mostrar_diccionarios(nombres_ordenados,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)
+        mostrar_diccionarios(participantes,dicc_palabra_adivinar_e_secreta,dicc_aciertos_desaciertos,dicc_puntaje,ganador)
                 
                 
                 

@@ -85,9 +85,9 @@ def mostrar_mensaje_progreso(es_acierto):
     """Muestra mensaje de acierto o desacierto. Zoilo Pazos"""
     
     if es_acierto:
-        mensaje="Muy bien!!! → "
+        mensaje=" \033[32m" + "Muy bien!!!" + "\033[0m" + "      "
     else:
-        mensaje="Lo siento!!! → "
+        mensaje=" \033[31m" + "Lo siento!!!" + "\033[0m" + "     "
     return mensaje
 
 def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
@@ -253,6 +253,7 @@ def crear_diccionario_puntaje(nombres_ordenados):
     
 
 def mostrar_diccionarios(nombres,dicc1,dicc2,dicc3,ganador):
+    
     for nombre in nombres:
         print("Los resultados de {}: \n".format(nombre))
         print("La palabra a adivinar era : {}".format(dicc1[nombre][0]))
@@ -261,5 +262,14 @@ def mostrar_diccionarios(nombres,dicc1,dicc2,dicc3,ganador):
         if ganador:
             print("El ganador fue {}".format(ganador))
     
-#def diccionario_total(nombres,intentos,dicc_Puntaje,dicc_aciertos_desaciertos,ganadores):
+# =============================================================================
+# def diccionario_total(nombres,intentos,dicc_puntaje,dicc_aciertos_desaciertos,ganadores):
+#     dicc_total = {}
+#     for nombre in nombres:
+#         if intentos == 1:
+#             dicc_total[nombre] = [dicc_puntaje[nombre][0],dicc_aciertos_desaciertos[nombre]]
+#             
+# =============================================================================
+            
+        
     
