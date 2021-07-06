@@ -1,4 +1,3 @@
-#borrar
 #--------GRUPO: SINERGIA------------------#
 
 """
@@ -20,7 +19,7 @@ from cuerpo_funciones import *
 from entrada_de_datos import *
 from salida_de_datos import *
 from diccionario import *
-from etapa_7 import *
+from turnos import *
 
 
 def main():
