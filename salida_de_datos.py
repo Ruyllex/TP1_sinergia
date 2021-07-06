@@ -24,7 +24,7 @@ def elegir_palabra(diccionario, longitud_palabra_elegida_validada):
         for palabra in diccionario:
             palabras_con_longitud_elegida.append(palabra)
     else:
-        for palabra in diccionario: 
+        for palabra in diccionario:
             if len(palabra) == int(longitud_palabra_elegida_validada):
                 palabras_con_longitud_elegida.append(palabra)
     return random.choice(palabras_con_longitud_elegida)
@@ -40,37 +40,7 @@ def eliminar_tildes(texto):
     for caracter in lista:
         texto = texto.lower().replace(caracter[letra_con_tilde], caracter[letra_sin_tilde])
     return texto
-def contar_puntajes(aciertos, desaciertos):
 
-    """Cuenta la cantidad de puntos los aciertos valen 10 y los desaciertos valen -5. Zoilo Pazos"""
-
-    valor_aciertos=10
-    valor_desaciertos=-5
-    return aciertos * valor_aciertos + desaciertos * (valor_desaciertos) 
-
-puntaje_total = 0 # CORRECCION: Esto está mal
-
-
-
-def validar_longitud_palabra(longitud_palabra_elegida):
-
-    """valida el ingreso de la longitud de la palabra elegida (número entero mayor a 5 o caracter vacio). Zoilo Pazos"""
-
-    longitud_valida = False # CORRECICON: Utilizar nombres más descriptivos
-    vacio=""
-
-    while not longitud_valida :
-
-        if longitud_palabra_elegida.isnumeric() and int(longitud_palabra_elegida) in range(5, 16):#en vez de 5 poner 6 y el 16 es la long max dentro del texto # CORRECCION: Utilizar constantes
-            longitud_valida = True
-        elif longitud_palabra_elegida == vacio:
-            longitud_valida = True
-        else:
-            longitud_valida = False
-            mensaje="Ingrese la longitud de palabra (entre 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
-            longitud_palabra_elegida = input(mensaje)
-
-    return longitud_palabra_elegida
 
 def instrucciones():
 
@@ -95,13 +65,6 @@ def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
     
     """devuelve lista aciertos y desaciertos. Zoilo Pazos """
 
-    #CORRECCION: Función ineficiente, una mejor opcion es:
-
-    #if es_acierto:
-    #   lista_aciertos_desaciertos[0] += 1
-    #else:
-    #   lista_aciertos_desaciertos[1] += 1
-    
     aciertos, desaciertos = lista_aciertos_desaciertos # CORRECCION: Se puede hacer "aciertos, desaciertos = lista_aciertos_desaciertos"
     
     
@@ -117,7 +80,7 @@ def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
 
 
 
-def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_letras_incorrectas): # CORRECCION: El nombre de la función es malo, "ultimo_mensaje()" es vago "mostrar_resultado_partida()" es más decriptivo
+def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_letras_incorrectas):
     
     """muestra el ultimo mensaje. Agustín Sánchez Vergara y Jorge Sedek """
     cant_MAX_desaciertos=8
@@ -131,19 +94,6 @@ def ultimo_mensaje(cadena_secreta,palabra_adivinar,aciertos,desaciertos,cadena_l
         #cadena_letras_incorrectas += letra
         mostrar_mensaje("Perdiste!!! → ", cadena_secreta, aciertos, desaciertos, cadena_letras_incorrectas)
 
-
-"""" se cambio esta funcion por devolver_letra_verificada(valida,repetida) , verificar_repetido(letra,cadena_letras_repetidas) y validar_letra(letra)"""
-# def permitir_letra(letra,cadena_letras_repetidas):
-#     
-#     """se asegura que letra no sea ni repetida ni invalida. Agustín Sánchez Vergara y Jorge Sedek"""
-#     
-#     while letra not in ("FIN", "0") and ((len(letra) > 1 or not letra.isalpha()) or letra in cadena_letras_repetidas):
-#         
-#         if len(letra) > 1 or not letra.isalpha():
-#             letra = validar_letra(letra)
-#         
-#         elif letra in cadena_letras_repetidas:
-#             letra = verificar_repetido(letra,cadena_letras_repetidas
 
 def validar_nombres(MAX_USUARIOS):
     
@@ -226,17 +176,17 @@ def descubrio_palabra(nombre,dicc_palabra_adivinar_e_secreta):
     return palabra_secreta == palabra_adivinar
 
 
-    
+
 def crear_diccionario_letras_repetidas_e_incorrectas(nombres_ordenados):
-    
+
     """ Crea un diccionario con las letras repetidas y incorrectas"""
-    
+
     cadena_letras_repetidas = ""
     cadena_letras_incorrectas = ""
     dicc_repetidas_incorrectas = {}
     
     for nombre in nombres_ordenados:
-        dicc_repetidas_incorrectas[nombre] = [cadena_letras_repetidas,cadena_letras_incorrectas] 
+        dicc_repetidas_incorrectas[nombre] = [cadena_letras_repetidas,cadena_letras_incorrectas]
     
     return dicc_repetidas_incorrectas
     
@@ -248,7 +198,7 @@ def crear_diccionario_puntaje(nombres_ordenados):
     
     dicc_puntaje = {}
     for nombre in nombres_ordenados:
-        dicc_puntaje[nombre] = [puntaje_jugador] 
+        dicc_puntaje[nombre] = [puntaje_jugador]
     
     return dicc_puntaje
     
@@ -266,15 +216,7 @@ def mostrar_diccionarios(nombres,dicc1,dicc2,dicc3,ganador):
 def mostrar_ultimo_diccionario(diccionario):
     for jugadores in diccionario:
         print(f'{jugadores} el puntaje total fue: {diccionario[jugadores][0]},    aciertos: {diccionario[jugadores][1]},    desaciertos: {diccionario[jugadores][2]}')
-
-# =============================================================================
-# def diccionario_total(nombres,intentos,dicc_puntaje,dicc_aciertos_desaciertos,ganadores):
-#     dicc_total = {}
-#     for nombre in nombres:
-#         if intentos == 1:
-#             dicc_total[nombre] = [dicc_puntaje[nombre][0],dicc_aciertos_desaciertos[nombre]]
-#             
-# =============================================================================
-            
-        
-    
+        if diccionario[jugadores][3] == 1:
+            print("Ganó", str(diccionario[jugadores][3]), "vez.")
+        elif diccionario[jugadores][3] > 1:
+            print("Ganó", str(diccionario[jugadores][3]), "veces.")

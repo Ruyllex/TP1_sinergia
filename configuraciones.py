@@ -29,6 +29,8 @@ def constantes():
     if diccionario_default.keys() != diccionario.keys():
         diccionario = diccionario_default
     return diccionario
+
+
 def check(diccionario):
     '''chequea si el diccionario es distinto al default'''
     if diccionario != diccionario_default:

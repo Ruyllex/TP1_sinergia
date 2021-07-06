@@ -4,7 +4,6 @@ def validar_letra(letra):
     
     """Devuelve un booleano que dice si la letra es valida o no. Leonardo Ayuso"""
 
-    # CORRECCIÓN: Mala modularización, ya tienen una función que pide el ingreso. Lo que debería hacer esta función es indicar si la letra es válida o no, y eso lo debe agarrar la función externa y decidir que hacer
     if (len(letra) != 1 or not letra.isalpha()) or (letra in ("FIN","0")) :
         valida = False
     else:
@@ -16,7 +15,6 @@ def verificar_repetido(letra,cadena_letras_repetidas):
     
     """Devuelve un booleano que dice si la letra esta repetida o no. Leonardo Ayuso"""
 
-    #CORRECCION: Misma corrección que la función anterior
     
     if letra in cadena_letras_repetidas:
         repetida = True
@@ -25,7 +23,7 @@ def verificar_repetido(letra,cadena_letras_repetidas):
         
     return repetida
 
-def devolver_letra_verificada(nombre,valida,repetida,cadena_letras_repetidas,letra):
+def devolver_letra_verificada(nombre, valida, repetida, cadena_letras_repetidas, letra):
     
     """Pide al usuario reingresar la letra hasta que sea valida y no este repetida. Jorge Sedek"""
     
@@ -40,12 +38,14 @@ def devolver_letra_verificada(nombre,valida,repetida,cadena_letras_repetidas,let
             print("Letra ya ingresada")
             letra = input(f"{nombre} → Ingresar letra: ")
         repetida = verificar_repetido(letra,cadena_letras_repetidas)
-        valida = validar_letra(letra)
+        if letra == "FIN":
+            valida = True
+        else: valida = validar_letra(letra)
 
     return letra
 
 
-def sumar_partidas(diccionario_puntaje,diccionario_aciertos_desaciertos,diccionario_total,nombres,intento,ganador):
+def sumar_partidas(diccionario_puntaje, diccionario_aciertos_desaciertos,diccionario_total, nombres, intento,ganador):
     for nombre in nombres:
         if intento == 1:
             diccionario_total[nombre]=[]
@@ -66,7 +66,3 @@ def sumar_partidas(diccionario_puntaje,diccionario_aciertos_desaciertos,dicciona
             if nombre==ganador:
                 diccionario_total[nombre][3]+=1
     return diccionario_total
-
-
-
-

@@ -1,7 +1,16 @@
-from generar_diccionario import eliminar_caracteres_especiales, armar_lista_de_palabras
 from salida_de_datos import eliminar_tildes
 from os import close
+import string
 
+def eliminar_caracteres_especiales(texto):
+
+    """Elimina los caracteres no alfabeticos de la cadena
+    Ruy Mori"""
+    caracteres_especiales=list(string.punctuation + "¡¿«»0123456789")
+    LONGITUD1 = len(caracteres_especiales)
+    for i in range(LONGITUD1):
+            texto = texto.replace(caracteres_especiales[i], " ")
+    return texto
 
 def leer_lineas(archivo, contador):
     linea = archivo.readline()
@@ -61,26 +70,3 @@ def generar_palaras_csv(diccionario):
     for palabra in lista_palabras_sin_repetir:
         palabras.write(palabra + "," + str(diccionario[palabra][0]) + "," + str(diccionario[palabra][1]) + "," + str(diccionario[palabra][2]) + "\n")
     palabras.close()
-
-    
-
-# prueba = open("archivos_txt/prueba.txt", 'r', encoding='utf-8-sig')
-# lista_y_dic_lineal = my_function(prueba, contador, diccionario, lista_palabras)
-# for palabra in lista_y_dic_lineal[0]:
-#     lista_palabras_sin_repetir.append(palabra)
-# diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-# prueba.close()
-
-# prueba2 = open("archivos_txt/prueba2.txt", "r", encoding='utf-8-sig')
-# lista_palabras = []
-# lista_y_dic_lineal = my_function(prueba2, contador, diccionario, lista_palabras)
-# for palabra in lista_y_dic_lineal[0]:
-#     lista_palabras_sin_repetir.append(palabra)
-# diccionario = {**diccionario, **lista_y_dic_lineal[1]}
-# prueba2.close()
-
-
-
-# close(cuentos)
-# close(araÃ±a_negra)
-# close(mil_noches)
