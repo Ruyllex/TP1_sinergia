@@ -1,3 +1,4 @@
+#borrame
 #---------- SALIDA DE DATOS--------------------#
 import random
 from cuerpo_funciones import esconder_palabra
