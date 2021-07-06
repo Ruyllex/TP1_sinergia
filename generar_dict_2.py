@@ -55,7 +55,7 @@ def generar_diccionario():
 
 def generar_palaras_csv(diccionario):
     #almacena las palabras en palabras.csv
-    lista_palabras_sin_repetir=list(diccionario.keys())
+    lista_palabras_sin_repetir = list(diccionario.keys())
     lista_palabras_sin_repetir.sort()
     palabras = open("palabras.csv", "w", encoding="utf-8-sig")
     for palabra in lista_palabras_sin_repetir:

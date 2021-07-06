@@ -25,13 +25,12 @@ from etapa_7 import *
 def main():
 
     
-    dicc_constantes=constantes() #esta en configuraciones
-    verificacion_configuraciones=check(dicc_constantes)
+    dicc_constantes = constantes() #esta en configuraciones
+    verificacion_configuraciones = check(dicc_constantes)
     #--------CONSTANTES-----------------
-    MAX_USUARIOS=dicc_constantes['MAX_USUARIOS']
-    LONG_PALABRA_MIN=dicc_constantes['LONG_PALABRA_MIN']
-    #MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
-    MAX_DESACIERTOS=2
+    MAX_USUARIOS = dicc_constantes['MAX_USUARIOS']
+    LONG_PALABRA_MIN = dicc_constantes['LONG_PALABRA_MIN']
+    MAX_DESACIERTOS=dicc_constantes['MAX_DESACIERTOS']
     PUNTOS_ADIVINA_PALABRA=dicc_constantes['PUNTOS_ADIVINA_PALABRA']
     PUNTOS_RESTA_GANA_PROGRAMA=dicc_constantes['PUNTOS_RESTA_GANA_PROGRAMA']
 
@@ -42,9 +41,9 @@ def main():
     
 
     #Diccionario
-    diccionario=generar_diccionario()
+    diccionario = generar_diccionario()
     generar_palaras_csv(diccionario)
-    diccionario_total={}
+    diccionario_total = {}
 
     #-------------mostrar configuraciones-----------
     print(f"{'Configuraciones':*^80}")
@@ -64,8 +63,12 @@ def main():
             
         nombres_ordenados = ordenar_nombres_aleatoriamente(nombres,ganador)
         #nombres_ordenados = ["pepe","pipin","papu"]
-        mensaje = "Ingrese la longitud de palabra (ente 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: \n"
+        mensaje = f"Ingrese la longitud de palabra (ente {LONG_PALABRA_MIN} y 16) con la que desea jugar, o presione enter para que sea aleatoria: \n"
         longitud_palabra_elegida = input(mensaje)
+        if longitud_palabra_elegida != '':
+            while int(longitud_palabra_elegida) < LONG_PALABRA_MIN or int(longitud_palabra_elegida) > 16:
+                longitud_palabra_elegida=input("Ingreso invalido: ")
+
         cadena_secreta = ""
         #inicializar diccionarios
         dicc_palabra_adivinar_e_secreta = crear_diccionario_palabras(nombres_ordenados,longitud_palabra_elegida,diccionario)
