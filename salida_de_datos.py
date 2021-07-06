@@ -258,8 +258,8 @@ def mostrar_diccionarios(nombres,dicc1,dicc2,dicc3,ganador):
     for nombre in nombres:
         print("Los resultados de {}: \n".format(nombre))
         print("La palabra a adivinar era : {}".format(dicc1[nombre][0]))
-        print("Tubo {} aciertos y {} desaciertos".format(dicc2[nombre][0],dicc2[nombre][1]))
-        print("Su puntaje fue {}".format(dicc3[nombre][0]))
+        print("Tuvo {} aciertos y {} desaciertos".format(dicc2[nombre][0],dicc2[nombre][1]))
+        print("Su puntaje fue {}\n".format(dicc3[nombre][0]))
         if ganador:
             print("El ganador fue {}".format(ganador))
     
