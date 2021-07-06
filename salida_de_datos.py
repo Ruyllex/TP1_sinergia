@@ -56,17 +56,17 @@ def validar_longitud_palabra(longitud_palabra_elegida):
 
     """valida el ingreso de la longitud de la palabra elegida (número entero mayor a 5 o caracter vacio). Zoilo Pazos"""
 
-    bandera = False # CORRECICON: Utilizar nombres más descriptivos
+    longitud_valida = False # CORRECICON: Utilizar nombres más descriptivos
     vacio=""
 
-    while not bandera :
+    while not longitud_valida :
 
         if longitud_palabra_elegida.isnumeric() and int(longitud_palabra_elegida) in range(5, 16):#en vez de 5 poner 6 y el 16 es la long max dentro del texto # CORRECCION: Utilizar constantes
-            bandera = True
+            longitud_valida = True
         elif longitud_palabra_elegida == vacio:
-            bandera = True
+            longitud_valida = True
         else:
-            bandera = False
+            longitud_valida = False
             mensaje="Ingrese la longitud de palabra (entre 5 y 16) con la que desea jugar, o presione enter para que sea aleatoria: "
             longitud_palabra_elegida = input(mensaje)
 
@@ -102,8 +102,8 @@ def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
     #else:
     #   lista_aciertos_desaciertos[1] += 1
     
-    aciertos = lista_aciertos_desaciertos[0] # CORRECCION: Se puede hacer "aciertos, desaciertos = lista_aciertos_desaciertos"
-    desaciertos = lista_aciertos_desaciertos[1]
+    aciertos, desaciertos = lista_aciertos_desaciertos # CORRECCION: Se puede hacer "aciertos, desaciertos = lista_aciertos_desaciertos"
+    
     
 
     if es_acierto:
