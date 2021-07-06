@@ -22,6 +22,7 @@ def leer_lineas(archivo, contador):
     else: devolucion = ''
     return devolucion
 
+
 def generar_diccionario():
     #genera el diccionario
     cuentos = open("archivos_txt/Cuentos.txt", "r", encoding='utf-8-sig')
@@ -30,36 +31,34 @@ def generar_diccionario():
     contador = 0
     diccionario = {}
 
-    def armar_diccionario(texto, contador, diccionario):
-        if texto == cuentos: indice_diccionario = 0
-        elif texto == araña_negra: indice_diccionario = 1
-        elif texto == mil_noches: indice_diccionario = 2
 
-        linea = leer_lineas(texto, contador)
-
-        while linea:
-            linea_limpia = eliminar_caracteres_especiales(eliminar_tildes(linea))
-            linea_listada = linea_limpia.split(" ")
-            for palabra in linea_listada:
-                if len(palabra) >= 5:
-                    if palabra not in diccionario:
-                        diccionario[palabra] = [0, 0, 0]
-                        diccionario[palabra][indice_diccionario] += 1
-                    else: diccionario[palabra][indice_diccionario] += 1
-            linea = leer_lineas(texto, contador)
-        return diccionario
-
-
-    diccionario = armar_diccionario(cuentos, contador, diccionario)
+    indice_diccionario = 0
+    diccionario = armar_diccionario(cuentos, contador, diccionario, indice_diccionario)
     cuentos.close()
 
-    
-    diccionario = armar_diccionario(araña_negra, contador, diccionario)
+    indice_diccionario = 1
+    diccionario = armar_diccionario(araña_negra, contador, diccionario, indice_diccionario)
     araña_negra.close()
 
-    
-    diccionario = armar_diccionario(mil_noches, contador, diccionario)
+    indice_diccionario = 2
+    diccionario = armar_diccionario(mil_noches, contador, diccionario, indice_diccionario)
     mil_noches.close()
+    return diccionario
+
+def armar_diccionario(texto, contador, diccionario, indice_diccionario):
+
+    linea = leer_lineas(texto, contador)
+
+    while linea:
+        linea_limpia = eliminar_caracteres_especiales(eliminar_tildes(linea))
+        linea_listada = linea_limpia.split(" ")
+        for palabra in linea_listada:
+            if len(palabra) >= 5:
+                if palabra not in diccionario:
+                    diccionario[palabra] = [0, 0, 0]
+                    diccionario[palabra][indice_diccionario] += 1
+                else: diccionario[palabra][indice_diccionario] += 1
+        linea = leer_lineas(texto, contador)
     return diccionario
 
 def generar_palaras_csv(diccionario):
