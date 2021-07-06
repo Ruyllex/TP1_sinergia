@@ -85,9 +85,9 @@ def mostrar_mensaje_progreso(es_acierto):
     """Muestra mensaje de acierto o desacierto. Zoilo Pazos"""
     
     if es_acierto:
-        mensaje=" \033[32m" + "Muy bien!!!" + "\033[0m"
+        mensaje=" \033[32m" + "Muy bien!!!" + "\033[0m" + "      "
     else:
-        mensaje=" \033[31m" + "Lo siento!!!" + "\033[0m"
+        mensaje=" \033[31m" + "Lo siento!!!" + "\033[0m" + "     "
     return mensaje
 
 def contador_aciertos_desaciertos(es_acierto,lista_aciertos_desaciertos):
