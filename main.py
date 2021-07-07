@@ -107,7 +107,7 @@ def main():
         respuesta = input("Queres seguir jugando? si/no: ").lower()
         intento += 1
     print(f"{'Puntaje total':*^80}")
-    diccionario_total=dict(sorted(diccionario_total.items(),key=lambda i: i[0][0]))
+    diccionario_total=dict(sorted(diccionario_total.items(),key=lambda i: i[1][0],reverse=True))
     mostrar_ultimo_diccionario(diccionario_total)
     print(f'se jugaron: {intento-1} partidas')
 
